@@ -9,7 +9,9 @@
 <link rel="stylesheet" href="/assets/css/navbar-footer.css" />
  <link rel="icon" href="/assets/image/logo.png" type="image/x-icon">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@200;300;400;500&display=swap" />
 </head>
 <body class="lbhg-page">
  <!-- =====================================================
@@ -96,7 +98,7 @@
             <a href="#contact" class="lbh-mobile-cta">Contact Us</a>
         </nav>
     </div>
-   <!-- 1. BANNER -->
+  <!-- 1. BANNER -->
   <section class="lbhg-banner" aria-label="Gallery banner">
     <div class="lbhg-banner-media" aria-hidden="true">
       <img class="lbhg-banner-img" src="/assets/image/gallery/banner-luxury-living-room.jpg" alt="" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1920&amp;q=80'" />
@@ -110,210 +112,166 @@
     </div>
     <div class="lbhg-scroll-indicator">
       <span>Scroll to explore</span>
-      <span class="lbhg-scroll-arrow" aria-hidden="true">&#8595;</span>
+      <span class="lbhg-scroll-arrow" aria-hidden="true"><i data-lucide="arrow-down-to-line"></i></span>
     </div>
   </section>
 
-  <!-- 2. INTRO -->
-  <section class="lbhg-gallery-intro">
-    <div class="lbhg-shell lbhg-intro-inner gallery-reveal">
-      <p class="lbhg-label">Our Work</p>
-      <h2 class="lbhg-intro-title">A Collection Of<br />Thoughtfully Designed Spaces.</h2>
-      <p class="lbhg-intro-text">From intimate residences to sophisticated commercial environments, every project reflects our approach to proportion, material, light and detail.</p>
+ 
+<div class="gal-page">
+  <main class="gal-shell">
+
+    <section class="gal-intro" aria-labelledby="gal-heading">
+      <p class="gal-eyebrow">OUR WORK</p>
+      <h1 id="gal-heading" class="gal-heading">INTERIOR GALLERY</h1>
+      <p class="gal-lede">
+        Explore our collection of thoughtfully designed spaces, refined details and completed interior projects.
+      </p>
+    </section>
+
+    <section class="gal-bar" aria-label="Gallery controls">
+      <div class="gal-tabs" id="gal-tabs" role="tablist" aria-label="Filter gallery by category"></div>
+      <div class="gal-actions">
+        <button type="button" class="gal-btn gal-btn--gold gal-upload-cta" id="gal-upload-cta">
+          <span aria-hidden="true">+</span> Upload Image
+        </button>
+        <div id="gal-user-slot"></div>
+      </div>
+    </section>
+
+    <section class="gal-results" aria-live="polite" id="gal-results">
+      <p class="gal-status">Loading gallery…</p>
+    </section>
+
+  </main>
+
+  <!-- Login modal -->
+  <div class="gal-overlay gal-overlay--tight" id="gal-login-overlay" hidden>
+    <div class="gal-login" role="dialog" aria-modal="true" aria-labelledby="gal-login-title" id="gal-login-dialog">
+      <header class="gal-login__head">
+        <div>
+          <h2 id="gal-login-title" class="gal-login__title">ADMIN LOGIN</h2>
+          <p class="gal-login__sub">Sign in to manage gallery images.</p>
+        </div>
+        <button type="button" class="gal-icon-btn" id="gal-login-close" aria-label="Close login dialog">X</button>
+      </header>
+      <form class="gal-form gal-login__form" id="gal-login-form" novalidate>
+        <div class="gal-field">
+          <label class="gal-label" for="gal-login-user">Username *</label>
+          <input id="gal-login-user" class="gal-input" type="text" autocomplete="username" placeholder="Enter username" />
+          <p class="gal-msg gal-msg--error" id="gal-login-user-err" role="alert" hidden><span aria-hidden="true"></span> <span></span></p>
+        </div>
+        <div class="gal-field">
+          <label class="gal-label" for="gal-login-pass">Password *</label>
+          <div class="gal-passwrap">
+            <input id="gal-login-pass" class="gal-input" type="password" autocomplete="current-password" placeholder="Enter password" />
+            <button type="button" class="gal-passtoggle" id="gal-login-pass-toggle" aria-pressed="false" aria-label="Show password">Show</button>
+          </div>
+          <p class="gal-msg gal-msg--error" id="gal-login-pass-err" role="alert" hidden><span aria-hidden="true"></span> <span></span></p>
+        </div>
+        <p class="gal-loginerror" id="gal-login-error" role="alert" hidden></p>
+        <div class="gal-login__actions">
+          <button type="button" class="gal-btn gal-btn--ghost" id="gal-login-cancel">Cancel</button>
+          <button type="submit" class="gal-btn gal-btn--gold" id="gal-login-submit">LOGIN</button>
+        </div>
+      </form>
     </div>
-  </section>
+  </div>
 
-  <!-- 3 & 4. FILTERS + MASONRY -->
-  <!-- ===== GALLERY SECTION ===== -->
-
-<section class="lbhg-gallery-section">
-
-    <div class="lbhg-shell">
-
-        <!-- FILTERS -->
-        <div class="lbhg-filter-wrap">
-            <div class="lbhg-filter">
-
-                <button
-                    class="lbhg-filter-btn is-current"
-                    type="button"
-                    data-lbhg-filter="all"
-                    aria-pressed="true">
-                    All
-                </button>
-
-                <button
-                    class="lbhg-filter-btn"
-                    type="button"
-                    data-lbhg-filter="residential"
-                    aria-pressed="false">
-                    Residential
-                </button>
-
-                <button
-                    class="lbhg-filter-btn"
-                    type="button"
-                    data-lbhg-filter="living"
-                    aria-pressed="false">
-                    Living
-                </button>
-
-                <button
-                    class="lbhg-filter-btn"
-                    type="button"
-                    data-lbhg-filter="bedroom"
-                    aria-pressed="false">
-                    Bedroom
-                </button>
-
-                <button
-                    class="lbhg-filter-btn"
-                    type="button"
-                    data-lbhg-filter="kitchen"
-                    aria-pressed="false">
-                    Kitchen
-                </button>
-
-                <button
-                    class="lbhg-filter-btn"
-                    type="button"
-                    data-lbhg-filter="commercial"
-                    aria-pressed="false">
-                    Commercial
-                </button>
-
-                <button
-                    class="lbhg-filter-btn"
-                    type="button"
-                    data-lbhg-filter="office"
-                    aria-pressed="false">
-                    Office
-                </button>
-
+  <!-- Upload / Edit modal -->
+  <div class="gal-overlay" id="gal-modal-overlay" hidden>
+    <div class="gal-modal" role="dialog" aria-modal="true" aria-labelledby="gal-modal-title" id="gal-modal-dialog">
+      <header class="gal-modal__head">
+        <div>
+          <h2 id="gal-modal-title" class="gal-modal__title">Upload an Image</h2>
+          <p class="gal-modal__sub">JPG or PNG, 1–2 MB, exactly 360 × 480px</p>
+        </div>
+        <button type="button" class="gal-icon-btn" id="gal-modal-close" aria-label="Close dialog">×</button>
+      </header>
+      <div class="gal-modal__body">
+        <form class="gal-form" id="gal-upload-form" novalidate>
+          <div class="gal-field">
+            <span class="gal-label" id="gal-file-label">Upload File *</span>
+            <div class="gal-drop" id="gal-drop" role="button" tabindex="0" aria-labelledby="gal-file-label" aria-describedby="gal-file-help">
+              <span class="gal-drop__mark" aria-hidden="true">+</span>
+              <span class="gal-drop__main">Drag &amp; Drop, or click to browse</span>
+              <span class="gal-drop__hint" id="gal-file-help">Exactly 360×480px · JPG/PNG · 1–2MB</span>
             </div>
-        </div>
-
-
-        <!-- GALLERY GRID -->
-
-        <div
-            class="lbhg-grid"
-            id="lbhgGrid">
-        </div>
-
-
-        <!-- EMPTY -->
-
-        <p
-            class="lbhg-empty"
-            id="lbhgEmpty"
-            hidden>
-            No projects in this category yet.
-        </p>
-
-
-        <!-- LOAD MORE -->
-
-        <div class="lbhg-load-more-wrap">
-
-            <button
-                class="lbhg-load-more"
-                type="button"
-                id="lbhgLoadMore">
-                Load More
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ===== LIGHTBOX ===== -->
-
-<div
-    class="lbhg-lightbox"
-    id="lbhgLightbox"
-    hidden>
-
-    <div
-        class="lbhg-lightbox-backdrop"
-        data-lbhg-close>
-    </div>
-
-
-    <button
-        class="lbhg-lightbox-close"
-        type="button"
-        aria-label="Close gallery"
-        data-lbhg-close>
-        ×
-    </button>
-
-
-    <button
-        class="lbhg-lightbox-nav lbhg-lightbox-prev"
-        type="button"
-        aria-label="Previous project">
-        ‹
-    </button>
-
-
-    <figure class="lbhg-lightbox-figure">
-
-        <img
-            class="lbhg-lightbox-image"
-            id="lbhgLightboxImage"
-            src=""
-            alt="">
-
-        <figcaption class="lbhg-lightbox-caption">
-
-            <div
-                class="lbhg-lightbox-category"
-                id="lbhgLightboxCategory">
+            <input type="file" id="gal-file-input" accept=".jpg,.jpeg,.png,image/jpeg,image/png" class="gal-sr" aria-labelledby="gal-file-label" />
+            <p class="gal-msg gal-msg--error" id="gal-file-err" role="alert" hidden><span aria-hidden="true"></span> <span></span></p>
+            <p class="gal-msg gal-msg--error" id="gal-file-missing-err" role="alert" hidden><span aria-hidden="true"></span> Please select an image.</p>
+            <div class="gal-filecard" id="gal-filecard" hidden>
+              <dl>
+                <div><dt>File</dt><dd id="gal-fc-name"></dd></div>
+                <div><dt>Size</dt><dd id="gal-fc-size"></dd></div>
+                <div><dt>Dimensions</dt><dd id="gal-fc-dims"></dd></div>
+                <div><dt>Status</dt><dd class="gal-ok">✓ Valid</dd></div>
+              </dl>
+              <button type="button" class="gal-link" id="gal-fc-replace">Replace image</button>
             </div>
+          </div>
 
-            <h2
-                class="lbhg-lightbox-title"
-                id="lbhgLightboxTitle">
-            </h2>
+          <div class="gal-field">
+            <label class="gal-label" for="gal-title">Title *</label>
+            <input id="gal-title" class="gal-input" maxlength="100" placeholder="e.g. Luxury Living Room Interior" required aria-describedby="gal-title-count" />
+            <div class="gal-field__foot">
+              <span class="gal-msg gal-msg--error" id="gal-title-err" role="alert" hidden><span aria-hidden="true"></span> Please enter a title.</span>
+              <span class="gal-counter" id="gal-title-count">0 / 100</span>
+            </div>
+          </div>
 
-            <p
-                class="lbhg-lightbox-desc"
-                id="lbhgLightboxDesc">
-            </p>
+          <div class="gal-field">
+            <label class="gal-label" for="gal-desc">Description</label>
+            <textarea id="gal-desc" class="gal-input gal-textarea" rows="4" placeholder="What's happening in this photo?" aria-describedby="gal-desc-count"></textarea>
+            <div class="gal-field__foot">
+              <span class="gal-msg gal-msg--error" id="gal-desc-err" role="alert" hidden><span aria-hidden="true"></span> Description must be 150 words or fewer.</span>
+              <span class="gal-counter" id="gal-desc-count">0 / 150 words</span>
+            </div>
+          </div>
 
-        </figcaption>
+          <div class="gal-field">
+            <label class="gal-label" for="gal-category">Category *</label>
+            <select id="gal-category" class="gal-input gal-select" required>
+              <option value="">Select a category</option>
+            </select>
+            <p class="gal-msg gal-msg--error" id="gal-category-err" role="alert" hidden><span aria-hidden="true"></span> Please select a category.</p>
+          </div>
 
-    </figure>
+          <button type="submit" class="gal-btn gal-btn--gold gal-btn--block" id="gal-upload-submit">Upload Image</button>
+        </form>
 
+        <aside class="gal-preview" aria-label="Image preview">
+          <div class="gal-preview__frame" id="gal-preview-frame">
+            <div class="gal-preview__empty" id="gal-preview-empty">
+              <p class="gal-preview__eyebrow">IMAGE PREVIEW</p>
+              <p class="gal-preview__hint">Select an image to preview</p>
+            </div>
+            <img id="gal-preview-img" alt="Selected image preview" hidden />
+          </div>
+          <p class="gal-preview__note">Preview shown at the required 360 × 480 ratio.</p>
+        </aside>
+      </div>
+    </div>
+  </div>
 
-    <button
-        class="lbhg-lightbox-nav lbhg-lightbox-next"
-        type="button"
-        aria-label="Next project">
-        ›
-    </button>
+  <!-- Confirm delete dialog -->
+  <div class="gal-overlay gal-overlay--tight" id="gal-confirm-overlay" hidden>
+    <div class="gal-confirm" role="alertdialog" aria-modal="true" aria-labelledby="gal-confirm-title" aria-describedby="gal-confirm-desc">
+      <h2 id="gal-confirm-title" class="gal-confirm__title">Delete this image?</h2>
+      <p id="gal-confirm-desc" class="gal-confirm__text">This action cannot be undone.</p>
+      <div class="gal-confirm__actions">
+        <button type="button" class="gal-btn gal-btn--ghost" id="gal-confirm-cancel">Cancel</button>
+        <button type="button" class="gal-btn gal-btn--danger" id="gal-confirm-ok">Delete</button>
+      </div>
+    </div>
+  </div>
 
+  <!-- Lightbox -->
+  <div class="gal-lightbox" id="gal-lightbox" hidden></div>
+
+  <!-- Toasts -->
+  <div class="gal-toasts" id="gal-toasts" role="status" aria-live="polite"></div>
 </div>
 
-  <!-- 11. LIGHTBOX -->
-  <div class="lbhg-lightbox" id="lbhgLightbox" role="dialog" aria-modal="true" aria-label="Gallery image viewer" hidden>
-    <div class="lbhg-lightbox-backdrop" data-lbhg-close></div>
-    <button class="lbhg-lightbox-close" type="button" aria-label="Close gallery" data-lbhg-close>&#215;</button>
-    <button class="lbhg-lightbox-nav lbhg-lightbox-prev" type="button" aria-label="Previous image">&#8592;</button>
-    <button class="lbhg-lightbox-nav lbhg-lightbox-next" type="button" aria-label="Next image">&#8594;</button>
-    <figure class="lbhg-lightbox-figure">
-      <img class="lbhg-lightbox-image" id="lbhgLightboxImage" src="" alt="" />
-      <figcaption class="lbhg-lightbox-caption">
-        <p class="lbhg-lightbox-category" id="lbhgLightboxCategory"></p>
-        <h3 class="lbhg-lightbox-title" id="lbhgLightboxTitle"></h3>
-        <p class="lbhg-lightbox-desc" id="lbhgLightboxDesc"></p>
-      </figcaption>
-    </figure>
-  </div>
  <!-- =====================================================
          FOOTER
     ====================================================== -->
