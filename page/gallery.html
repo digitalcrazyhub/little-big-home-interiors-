@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="/assets/css/gallery.css" />
 <link rel="stylesheet" href="/assets/css/navbar-footer.css" />
  <link rel="icon" href="/assets/image/logo.png" type="image/x-icon">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body class="lbhg-page">
  <!-- =====================================================
@@ -25,7 +27,7 @@
                  DESKTOP NAVIGATION
             ================================ -->
             <nav class="lbh-menu" id="lbhMenu" aria-label="Primary Navigation">
-                <a href="#home" class="lbh-menu-link lbh-active">Home</a>
+                <a href="/index.html" class="lbh-menu-link lbh-active">Home</a>
                 <a href="/index.html#about" class="lbh-menu-link">About</a>
                 <a href="/index.html#projects" class="lbh-menu-link">Projects</a>
                 <a href="/index.html#services" class="lbh-menu-link">Services</a>
@@ -38,25 +40,11 @@
             ================================ -->
             <div class="lbh-nav-actions">
                 <!-- PHONE -->
-                <a href="tel:+919999999999" class="lbh-phone" aria-label="Call Little Big Home Interiors">
+                <a href="tel:+917358161947" class="lbh-phone" aria-label="Call Little Big Home Interiors">
                     <span class="lbh-phone-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2
-                                19.79 19.79 0 0 1-8.63-3.07
-                                19.5 19.5 0 0 1-6-6
-                                19.79 19.79 0 0 1-3.07-8.67
-                                A2 2 0 0 1 4.11 2h3
-                                a2 2 0 0 1 2 1.72
-                                12.84 12.84 0 0 0 .7 2.81
-                                2 2 0 0 1-.45 2.11L8.09 9.91
-                                a16 16 0 0 0 6 6l1.27-1.27
-                                a2 2 0 0 1 2.11-.45
-                                12.84 12.84 0 0 0 2.81.7
-                                A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                        <i data-lucide="phone-call"></i>
                     </span>
-                    <span class="lbh-phone-text">+91 99999 99999</span>
+                    <span class="lbh-phone-text">+91 73581 61947</span>
                 </a>
                 <!-- CONTACT CTA -->
                 <a href="#contact" class="lbh-contact-cta">Contact Us</a>
@@ -85,7 +73,7 @@
             <a href="/page/gallery.html" class="lbh-mobile-link">Gallery</a>
             <a href="#contact" class="lbh-mobile-link">Contact</a>
             <!-- Mobile Phone -->
-            <a href="tel:+919999999999" class="lbh-mobile-phone">
+            <a href="tel:+917358161947" class="lbh-mobile-phone">
                 <span class="lbh-mobile-phone-icon">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2
@@ -108,7 +96,7 @@
             <a href="#contact" class="lbh-mobile-cta">Contact Us</a>
         </nav>
     </div>
-  <!-- 1. BANNER -->
+   <!-- 1. BANNER -->
   <section class="lbhg-banner" aria-label="Gallery banner">
     <div class="lbhg-banner-media" aria-hidden="true">
       <img class="lbhg-banner-img" src="/assets/image/gallery/banner-luxury-living-room.jpg" alt="" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1920&amp;q=80'" />
@@ -136,29 +124,180 @@
   </section>
 
   <!-- 3 & 4. FILTERS + MASONRY -->
-  <section class="lbhg-gallery-section">
+  <!-- ===== GALLERY SECTION ===== -->
+
+<section class="lbhg-gallery-section">
+
     <div class="lbhg-shell">
-      <div class="lbhg-filter-wrap gallery-reveal">
-        <div class="lbhg-filter" role="tablist" aria-label="Filter gallery by category">
-          <button class="lbhg-filter-btn is-current" type="button" data-lbhg-filter="all" aria-pressed="true">All</button>
-          <button class="lbhg-filter-btn" type="button" data-lbhg-filter="residential" aria-pressed="false">Residential</button>
-          <button class="lbhg-filter-btn" type="button" data-lbhg-filter="commercial" aria-pressed="false">Commercial</button>
-          <button class="lbhg-filter-btn" type="button" data-lbhg-filter="bedroom" aria-pressed="false">Bedroom</button>
-          <button class="lbhg-filter-btn" type="button" data-lbhg-filter="living" aria-pressed="false">Living</button>
-          <button class="lbhg-filter-btn" type="button" data-lbhg-filter="kitchen" aria-pressed="false">Kitchen</button>
-          <button class="lbhg-filter-btn" type="button" data-lbhg-filter="office" aria-pressed="false">Office</button>
+
+        <!-- FILTERS -->
+        <div class="lbhg-filter-wrap">
+            <div class="lbhg-filter">
+
+                <button
+                    class="lbhg-filter-btn is-current"
+                    type="button"
+                    data-lbhg-filter="all"
+                    aria-pressed="true">
+                    All
+                </button>
+
+                <button
+                    class="lbhg-filter-btn"
+                    type="button"
+                    data-lbhg-filter="residential"
+                    aria-pressed="false">
+                    Residential
+                </button>
+
+                <button
+                    class="lbhg-filter-btn"
+                    type="button"
+                    data-lbhg-filter="living"
+                    aria-pressed="false">
+                    Living
+                </button>
+
+                <button
+                    class="lbhg-filter-btn"
+                    type="button"
+                    data-lbhg-filter="bedroom"
+                    aria-pressed="false">
+                    Bedroom
+                </button>
+
+                <button
+                    class="lbhg-filter-btn"
+                    type="button"
+                    data-lbhg-filter="kitchen"
+                    aria-pressed="false">
+                    Kitchen
+                </button>
+
+                <button
+                    class="lbhg-filter-btn"
+                    type="button"
+                    data-lbhg-filter="commercial"
+                    aria-pressed="false">
+                    Commercial
+                </button>
+
+                <button
+                    class="lbhg-filter-btn"
+                    type="button"
+                    data-lbhg-filter="office"
+                    aria-pressed="false">
+                    Office
+                </button>
+
+            </div>
         </div>
-      </div>
 
-      <div class="lbhg-grid" id="lbhgGrid"></div>
 
-      <p class="lbhg-empty" id="lbhgEmpty" hidden>No projects in this category yet.</p>
+        <!-- GALLERY GRID -->
 
-      <div class="lbhg-load-more-wrap">
-        <button class="lbhg-load-more" type="button" id="lbhgLoadMore">Load More</button>
-      </div>
+        <div
+            class="lbhg-grid"
+            id="lbhgGrid">
+        </div>
+
+
+        <!-- EMPTY -->
+
+        <p
+            class="lbhg-empty"
+            id="lbhgEmpty"
+            hidden>
+            No projects in this category yet.
+        </p>
+
+
+        <!-- LOAD MORE -->
+
+        <div class="lbhg-load-more-wrap">
+
+            <button
+                class="lbhg-load-more"
+                type="button"
+                id="lbhgLoadMore">
+                Load More
+            </button>
+
+        </div>
+
     </div>
-  </section>
+
+</section>
+
+
+<!-- ===== LIGHTBOX ===== -->
+
+<div
+    class="lbhg-lightbox"
+    id="lbhgLightbox"
+    hidden>
+
+    <div
+        class="lbhg-lightbox-backdrop"
+        data-lbhg-close>
+    </div>
+
+
+    <button
+        class="lbhg-lightbox-close"
+        type="button"
+        aria-label="Close gallery"
+        data-lbhg-close>
+        ×
+    </button>
+
+
+    <button
+        class="lbhg-lightbox-nav lbhg-lightbox-prev"
+        type="button"
+        aria-label="Previous project">
+        ‹
+    </button>
+
+
+    <figure class="lbhg-lightbox-figure">
+
+        <img
+            class="lbhg-lightbox-image"
+            id="lbhgLightboxImage"
+            src=""
+            alt="">
+
+        <figcaption class="lbhg-lightbox-caption">
+
+            <div
+                class="lbhg-lightbox-category"
+                id="lbhgLightboxCategory">
+            </div>
+
+            <h2
+                class="lbhg-lightbox-title"
+                id="lbhgLightboxTitle">
+            </h2>
+
+            <p
+                class="lbhg-lightbox-desc"
+                id="lbhgLightboxDesc">
+            </p>
+
+        </figcaption>
+
+    </figure>
+
+
+    <button
+        class="lbhg-lightbox-nav lbhg-lightbox-next"
+        type="button"
+        aria-label="Next project">
+        ›
+    </button>
+
+</div>
 
   <!-- 11. LIGHTBOX -->
   <div class="lbhg-lightbox" id="lbhgLightbox" role="dialog" aria-modal="true" aria-label="Gallery image viewer" hidden>
@@ -194,10 +333,10 @@
                 <p class="lbh-footer-address">Chennai, Tamil Nadu, India</p>
                 <!-- SOCIAL -->
                 <div class="lbh-socials">
-                    <a href="#" aria-label="Facebook">f</a>
-                    <a href="#" aria-label="Instagram">ig</a>
-                    <a href="#" aria-label="YouTube">yt</a>
-                    <a href="#" aria-label="LinkedIn">in</a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
             </div>
             <!-- ===============================
@@ -232,9 +371,9 @@
             <div class="lbh-footer-col">
                 <h4>Contact</h4>
                 <ul>
-                    <li><a href="tel:+919999999999">+91 99999 99999</a></li>
-                    <li><a href="mailto:hello@littlebighomeinteriors.com">hello@littlebighomeinteriors.com</a></li>
-                    <li>Chennai, India</li>
+                    <li><a href="tel:+917358161947  ">+91 73581 61947</a></li>
+                    <li><a href="mailto:litlebighomes@gmail.com">litlebighomes@gmail.com</a></li>
+                    <li>6/36C, Dhanadayuthapani 1 Street, Chitra Nagar, Kottrurpuram, Chennai, Tamil Nadu - 600085.</li>
                 </ul>
             </div>
         </div>
@@ -243,11 +382,15 @@
         ================================ -->
         <div class="lbh-footer-bottom-wrap">
             <div class="lbh-footer-bottom">
-                <span>© 2026 Little Big Home Interiors. All rights reserved.</span>
+                <span>© 2026 Little Big Home Interiors. All rights reserved.<a href="https://www.digitalcrazyhub.com/" target="_blank" rel="noopener noreferrer" style="color: rgba(255, 255, 255, .45); text-decoration: none;"> Designed by Digital Crazy Hub</a></span>
                 <span>Crafted with care for those who inhabit space.</span>
             </div>
         </div>
     </footer>
+      <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
   <script src="/assets/js/gallery.js"></script>
   <script src="/assets/js/navbar-footer.js"></script>
 </body>

@@ -1,0 +1,429 @@
+    /* =========================================================
+   Little Big Home Interiors — Privacy Policy stylesheet
+   Matches the reference design: warm off-white header,
+   black/gold editorial type, thin-rule sections, sticky TOC.
+   ========================================================= */
+
+:root {
+  --ink: #1c1a17;
+  --ink-soft: #55524c;
+  --ink-faint: #9a968d;
+  --gold: #b8863f;
+  --gold-soft: #cba15f;
+  --bg: #ffffff;
+  --bg-warm: #f4f1ec;
+  --line: #e4e0d8;
+  --line-soft: #ece8e1;
+  --serif: "Plus Jakarta Sans", Georgia, "Times New Roman", serif;
+  --sans: "Manrope", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --max: 1200px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+hr.rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+
+/* ---------------- Header / Brand ---------------- */
+
+header.brand {
+  background: var(--ink);
+  padding: 200px 0 40px;
+}
+
+.brand-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.brand-logo {
+  width: 100px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  color: var(--bg);
+}
+
+.brand-type {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 4px;
+}
+
+.brand-meta {
+  margin-left: auto;
+  text-align: right;
+  font-size: 13px;
+  color: var(--ink-faint);
+  line-height: 1.9;
+}
+
+.brand-meta a:hover {
+  color: var(--gold);
+}
+
+/* ---------------- Hero ---------------- */
+
+.hero {
+  padding: 80px 48px 56px;
+}
+
+.hero .label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 28px;
+}
+
+.hero .label .dash {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 68px;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin: 0 0 28px;
+  color: var(--ink);
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+}
+
+.hero-sub {
+  max-width: 640px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin: 0 0 36px;
+}
+
+.hero-updated {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0;
+}
+
+.hero-updated b {
+  color: var(--ink);
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 600;
+}
+
+/* ---------------- Layout: TOC + Article ---------------- */
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 80px;
+  align-items: start;
+  padding: 64px 48px 120px;
+}
+
+/* ---------------- Table of contents ---------------- */
+
+.toc {
+  position: sticky;
+  top: 40px;
+  order: 2;
+}
+
+.toc h2 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 20px;
+}
+
+.toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc li + li {
+  margin-top: 2px;
+}
+
+.toc a {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 9px 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease;
+}
+
+.toc a .n {
+  font-size: 11px;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.toc a:hover {
+  color: var(--gold);
+}
+
+.toc a.is-active {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.toc a.is-active .n {
+  color: var(--gold);
+}
+
+/* ---------------- Article / Sections ---------------- */
+
+.policy {
+  order: 1;
+  max-width: 720px;
+}
+
+.sec {
+  padding: 44px 0;
+  border-top: 1px solid var(--line-soft);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.sec:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.sec.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sec-num {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.sec h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 18px;
+  letter-spacing: -0.2px;
+}
+
+.sec h3 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 28px 0 14px;
+}
+
+.sec p {
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+
+.sec p:last-child {
+  margin-bottom: 0;
+}
+
+.sec p.note {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-faint);
+  padding-left: 16px;
+  border-left: 2px solid var(--gold-soft);
+}
+
+.sec a {
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold-soft);
+}
+
+.sec a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+/* ---------------- Lists ---------------- */
+
+ul.list {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+ul.list li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
+ul.list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 12px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ---------------- Contact block ---------------- */
+
+.contact-block {
+  margin-top: 12px;
+  padding: 32px;
+  background: var(--bg-warm);
+  border-radius: 4px;
+}
+
+.contact-block .name {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.contact-block .role {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 4px;
+}
+
+.contact-list {
+  margin: 24px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
+}
+
+.contact-list dt {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 4px;
+}
+
+.contact-list dd {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--ink);
+}
+
+.contact-list dd a:hover {
+  color: var(--gold);
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 48px 24px 80px;
+  }
+
+  .toc {
+    position: static;
+    order: 0;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .toc ol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+  }
+
+  .policy { order: 1; }
+
+  .hero { padding: 56px 24px 40px; }
+  .hero h1 { font-size: 44px; }
+
+  .brand-inner { padding: 0 24px; }
+  .brand-meta { text-align: left; margin-left: 0; width: 100%; }
+
+  .container { padding: 0 24px; }
+
+  .contact-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .toc ol { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 34px; }
+  .sec h2 { font-size: 22px; }
+}

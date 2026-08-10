@@ -74,29 +74,79 @@
         revealEls.forEach(function (el) { el.classList.add("show"); });
     }
 
-    /* ---- counters ---- */
-    var stats = document.getElementById("stats");
-    function runCounters() {
-        stats.querySelectorAll("[data-count]").forEach(function (el) {
-            var end = Number(el.dataset.count);
-            var plain = el.dataset.plain === "1";
-            var dur = 1600, start = performance.now();
-            function step(now) {
-                var p = Math.min((now - start) / dur, 1);
-                var eased = 1 - Math.pow(1 - p, 3);
-                el.textContent = Math.round(end * eased) + (plain || p < 1 ? "" : "+");
-                if (p < 1) requestAnimationFrame(step);
-            }
-            requestAnimationFrame(step);
-        });
-    }
-    if (stats && "IntersectionObserver" in window) {
-        var so = new IntersectionObserver(function (entries) {
-            if (entries[0].isIntersecting) { runCounters(); so.disconnect(); }
-        }, { threshold: 0.3 });
-        so.observe(stats);
-    }
+ /* ---- counters ---- */
+/* ===== COUNTERS ===== */
 
+var stats = document.getElementById("stats");
+
+function runCounters() {
+
+    if (!stats) return;
+
+    var counters = stats.querySelectorAll("[data-count]");
+
+    counters.forEach(function (el) {
+
+        var end = Number(el.dataset.count);
+        var suffix = el.dataset.suffix || "";
+        var duration = 1600;
+        var start = performance.now();
+
+        function step(now) {
+
+            var progress = Math.min(
+                (now - start) / duration,
+                1
+            );
+
+            /* Smooth ease-out */
+            var eased = 1 - Math.pow(1 - progress, 3);
+
+            var value = Math.round(end * eased);
+
+            el.textContent = value + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }
+
+        }
+
+        requestAnimationFrame(step);
+
+    });
+}
+
+
+/* ===== START WHEN VISIBLE ===== */
+
+if (stats && "IntersectionObserver" in window) {
+
+    var statsObserver = new IntersectionObserver(
+        function (entries) {
+
+            if (entries[0].isIntersecting) {
+
+                runCounters();
+
+                statsObserver.disconnect();
+
+            }
+
+        },
+        {
+            threshold: 0.3
+        }
+    );
+
+    statsObserver.observe(stats);
+
+} else if (stats) {
+
+    /* Fallback */
+    runCounters();
+
+}
     /* ---- skill bars ---- */
     var bars = document.querySelectorAll("[data-bar]");
     if (bars.length && "IntersectionObserver" in window) {
@@ -215,18 +265,6 @@
         });
     }
 
-    /* ---- newsletter ---- */
-    var news = document.getElementById("newsForm");
-    var newsMsg = document.getElementById("newsMsg");
-    if (news && newsMsg) {
-        news.addEventListener("submit", function (e) {
-            e.preventDefault();
-            var val = document.getElementById("newsEmail").value.trim();
-            if (!/^\S+@\S+\.\S+$/.test(val)) { newsMsg.textContent = "Please enter a valid email address."; return; }
-            newsMsg.textContent = "You're subscribed. Welcome to the Antra journal.";
-            news.reset();
-        });
-    }
 
     /* ---- active nav link ---- */
     var sections = ["home", "about", "projects", "services", "process", "contact"]

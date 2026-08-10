@@ -34,9 +34,10 @@ body.lbhg-page {
 .lbhg-page img {
     display: block;
     max-width: 100%;
+    border-radius: 10px;
 }
 
-.lbhg-page button {
+ button {
     font: inherit;
     color: inherit;
     background: none;
@@ -293,6 +294,8 @@ body.lbhg-page {
 
 .lbhg-filter-btn.is-current {
     color: var(--brass);
+    font:inherit;
+    font-size:inherit
 }
 
 .lbhg-filter-btn.is-current::after {
@@ -440,7 +443,7 @@ body.lbhg-page {
     margin-top: 66px;
 }
 
-.lbhg-load-more {
+.lbhg-load-more  {
     position: relative;
     padding: 17px 52px;
     border: 1px solid var(--brass);
