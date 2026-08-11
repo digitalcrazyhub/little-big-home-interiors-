@@ -83,25 +83,7 @@ const GalleryDB = (() => {
   }
 
   const DEMO_SEED = [
-    {
-      title: "Warm Minimal Living Room",
-      description:
-        "A calm living space layered with oak, linen and soft daylight, arranged around a low travertine table.",
-      category: "Living Room",
-      remoteUrl: "/assets/image/image3.jpeg",
-      width: 900,
-      height: 1200,
-    },
-    {
-      title: "Warm Minimal Living Room",
-      description:
-        "A calm living space layered with oak, linen and soft daylight, arranged around a low travertine table.",
-      category: "Living Room",
-      remoteUrl: "/assets/image/image3.jpeg",
-      width: 900,
-      height: 1200,
-    },
-  
+ 
   ];
 
   /** Seeds demo entries only when the store is completely empty. */
