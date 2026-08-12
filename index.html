@@ -31,7 +31,6 @@
                 <a href="#about" class="lbh-menu-link">About</a>
                 <a href="#projects" class="lbh-menu-link">Projects</a>
                 <a href="#services" class="lbh-menu-link">Services</a>
-                <a href="#process" class="lbh-menu-link">Process</a>
                 <a href="/page/gallery.html" class="lbh-menu-link">Gallery</a>
                 <a href="#contact" class="lbh-menu-link">Contact</a>
             </nav>
@@ -113,26 +112,143 @@
 
     <main>
         <!-- ============ HERO ============ -->
-        <section class="hero" id="home">
-            <div class="hero-media"><img src="/assets/image/home-banner.jpeg"
-                    alt="Cinematic luxury dining room interior at dusk" width="1920" height="1080" /></div>
-            <div class="hero-overlay"></div>
-            <div class="container hero-content">
-                <p class="label label-light reveal">Interior · Architecture · Styling</p>
-                <h1 class="reveal">Find Your <em>Inspired</em><br />Interior Design</h1>
-                <p class="hero-sub reveal">Thoughtfully designed spaces that bring architecture, functionality and
-                    timeless aesthetics together.</p>
-                <div class="hero-actions reveal">
-                    <a href="#projects" class="btn btn-gold">Explore Our Work</a>
-                    <a href="#about" class="btn btn-outline">Our Studio</a>
-                </div>
+    <section class="hero" id="home">
+
+        <div class="hero-media">
+
+            <img
+                    src="/assets/image/home-banner.jpeg"
+                    alt="Cinematic luxury dining room interior at dusk"
+                    width="1600"
+                    height="900"
+                    draggable="false"
+            />
+
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+
+            <p class="label label-light reveal">
+                Interior · Architecture · Styling
+            </p>
+
+            <h1 class="reveal">
+                Find Your <em>Inspired</em><br />
+                Interior Design
+            </h1>
+
+            <p class="hero-sub reveal">
+                Thoughtfully designed spaces that bring architecture,
+                functionality and timeless aesthetics together.
+            </p>
+
+            <div class="hero-actions reveal">
+
+                <a href="/page/gallery.html" class="btn btn-gold">
+                    Explore Our Work
+                </a>
+
             </div>
-            <a href="#about" class="scroll-dot" aria-label="Scroll to next section">
-                <span class="scroll-dot-ring"></span>
-                <span class="scroll-dot-arrow">&#8595;</span>
-            </a>
-            <div class="hero-word" aria-hidden="true"><i data-lucide="move-down"></i> </div>
-        </section>
+
+        </div>
+
+
+        <a
+                href="#about"
+                class="scroll-dot"
+                aria-label="Scroll to next section"
+        >
+
+            <span class="scroll-dot-ring"></span>
+
+            <span class="scroll-dot-arrow">
+            &#8595;
+        </span>
+
+        </a>
+
+
+        <div
+                class="hero-word"
+                aria-hidden="true"
+        >
+            <i data-lucide="move-down"></i>
+        </div>
+
+
+        <!-- =====================================================
+             HERO CAROUSEL PREVIOUS
+        ====================================================== -->
+
+        <button
+                type="button"
+                class="hero-carousel-prev"
+                aria-label="Previous slide"
+        >
+            &#8592;
+        </button>
+
+
+        <!-- =====================================================
+             HERO CAROUSEL NEXT
+        ====================================================== -->
+
+        <button
+                type="button"
+                class="hero-carousel-next"
+                aria-label="Next slide"
+        >
+            &#8594;
+        </button>
+
+
+        <!-- =====================================================
+             HERO CAROUSEL DOTS
+        ====================================================== -->
+
+        <div
+                class="hero-carousel-dots"
+                aria-label="Hero slides"
+        >
+
+            <button
+                    type="button"
+                    class="hero-carousel-dot active"
+                    data-slide="0"
+                    aria-label="Go to slide 1"
+                    aria-current="true"
+            ></button>
+
+            <button
+                    type="button"
+                    class="hero-carousel-dot"
+                    data-slide="1"
+                    aria-label="Go to slide 2"
+                    aria-current="false"
+            ></button>
+
+            <button
+                    type="button"
+                    class="hero-carousel-dot"
+                    data-slide="2"
+                    aria-label="Go to slide 3"
+                    aria-current="false"
+            ></button>
+
+            <button
+                    type="button"
+                    class="hero-carousel-dot"
+                    data-slide="3"
+                    aria-label="Go to slide 4"
+                    aria-current="false"
+            ></button>
+
+        </div>
+
+    </section>
+
 
         <!-- ============ ABOUT ============ -->
         <section class="section about" id="about">
@@ -159,6 +275,102 @@
                     </ul>
                     <a href="#portfolio" class="circle-btn" aria-label="See our portfolio"><i
                             data-lucide="move-up-right"></i> </a>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- ============ PROCESS ============ -->
+        <section class="section process" id="process">
+            <div class="container">
+                <p class="label reveal">Our Process</p>
+                <h2 class="reveal">Description <em>Architecture</em><br />Process For Exceptional Results.</h2>
+                <div class="process-grid">
+                    <div class="image-wrap reveal-left process-img"><img src="/assets/image/image (10).jpeg"
+                            alt="Calm bedroom interior in neutral tones" loading="lazy" width="1200" height="900" />
+                    </div>
+                    <ol class="steps">
+                        <li class="reveal-up"><span class="num">01</span>
+                            <h3>Discovery</h3>
+                            <p>We listen, measure and study the site to understand light, flow and how you want to live.
+                            </p>
+                        </li>
+                        <li class="reveal-up"><span class="num">02</span>
+                            <h3>Design Planning</h3>
+                            <p>Concepts, layouts and material palettes are drawn until the plan feels inevitable.</p>
+                        </li>
+                        <li class="reveal-up"><span class="num">03</span>
+                            <h3>Development</h3>
+                            <p>Detailed drawings, joinery and lighting design translate the concept into buildable
+                                precision.</p>
+                        </li>
+                        <li class="reveal-up"><span class="num">04</span>
+                            <h3>Execution</h3>
+                            <p>On-site supervision and styling — delivered on schedule, finished to the millimetre.</p>
+                        </li>
+                        <li class="reveal-up"><span class="num">05</span>
+                        <h3>Handover</h3>
+                        <p>Final detailing, quality checks and finishing touches ensure every space is ready to be lived in.</p>
+                    </li>
+                    <li class="reveal-up"><span class="num">06</span>
+                        <h3>Aftercare</h3>
+                        <p>We stay connected beyond completion, supporting you with guidance and care as your space evolves.</p>
+                    </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SERVICES ============ -->
+        <section class="services" id="services">
+            <div class="services-media" data-parallax><img src="assets/images/services-bg.jpg"
+                    alt="Dark luxury lounge interior" loading="lazy" width="1920" height="1200" /></div>
+            <div class="services-overlay"></div>
+            <div class="container services-content">
+                <p class="label label-light reveal">Our Services</p>
+                <h2 class="light reveal">Explore Our Comprehensive<br /><em>Interior Design</em> Services</h2>
+                <div class="svc-grid">
+                    <article class="svc-card reveal-up"><span class="num">01</span>
+                        <div class="service-card-image">
+                            <img src="/assets/image/image (16).jpeg" alt="Residential Interiors">
+                        </div>
+                        <h3>Residential Interiors</h3>
+                        <p>Homes designed around light, comfort and the rituals of everyday living.</p><span
+                            class="svc-arrow" aria-hidden="true"><i data-lucide="move-up-right"></i> </span>
+                    </article>
+                    <article class="svc-card reveal-up"><span class="num">02</span>
+                        <div class="service-card-image">
+                            <img src="/assets/image/image (17).jpeg" alt="Commercial Interiors">
+                        </div>
+                        <h3>Commercial Interiors</h3>
+                        <p>Workspaces and retail environments that carry a brand without shouting.</p><span
+                            class="svc-arrow" aria-hidden="true"><i data-lucide="move-up-right"></i></span>
+                    </article>
+                    <article class="svc-card reveal-up"><span class="num">03</span>
+                        <div class="service-card-image">
+                            <img src="/assets/image/image (18).jpeg" alt="Custom Furniture & Styling">
+                        </div>
+                        <h3>Custom Furniture &amp; Styling</h3>
+                        <p>Bespoke joinery, loose furniture and the final layer of objects and texture.</p><span
+                            class="svc-arrow" aria-hidden="true"><i data-lucide="move-up-right"></i></span>
+                    </article>
+                    <article class="svc-card reveal-up"><span class="num">04</span>
+                        <div class="service-card-image">
+                            <img src="/assets/image/image (19).jpeg" alt="Architectural Design">
+                        </div>
+                        <h3>Architectural Design</h3>
+                        <p>Ground-up structures and renovations with a rigorous, material-led language.</p><span
+                            class="svc-arrow" aria-hidden="true"><i data-lucide="move-up-right"></i></span>
+                    </article>
+                    <article class="svc-card reveal-up"><span class="num">05</span>
+                        <div class="service-card-image">
+                            <img src="/assets/image/image (20).jpeg" alt="Space Planning & Consultation">
+                        </div>
+                        <h3>Space Planning &amp; Consultation</h3>
+                        <p>Efficient plans, circulation studies and expert advice before the first wall moves.</p><span
+                            class="svc-arrow" aria-hidden="true"><i data-lucide="move-up-right"></i></span>
+                    </article>
                 </div>
             </div>
         </section>
@@ -222,93 +434,7 @@
                     </article>
                 </div>
                 <div class="gallery-btn">
-                    <a href="#" class="gallery-next-btn">Explore Our Work</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ PROCESS ============ -->
-        <section class="section process" id="process">
-            <div class="container">
-                <p class="label reveal">Our Process</p>
-                <h2 class="reveal">Description <em>Architecture</em><br />Process For Exceptional Results.</h2>
-                <div class="process-grid">
-                    <div class="image-wrap reveal-left process-img"><img src="/assets/image/image (10).jpeg"
-                            alt="Calm bedroom interior in neutral tones" loading="lazy" width="1200" height="900" />
-                    </div>
-                    <ol class="steps">
-                        <li class="reveal-up"><span class="num">01</span>
-                            <h3>Discovery</h3>
-                            <p>We listen, measure and study the site to understand light, flow and how you want to live.
-                            </p>
-                        </li>
-                        <li class="reveal-up"><span class="num">02</span>
-                            <h3>Design Planning</h3>
-                            <p>Concepts, layouts and material palettes are drawn until the plan feels inevitable.</p>
-                        </li>
-                        <li class="reveal-up"><span class="num">03</span>
-                            <h3>Development</h3>
-                            <p>Detailed drawings, joinery and lighting design translate the concept into buildable
-                                precision.</p>
-                        </li>
-                        <li class="reveal-up"><span class="num">04</span>
-                            <h3>Execution</h3>
-                            <p>On-site supervision and styling — delivered on schedule, finished to the millimetre.</p>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ SERVICES ============ -->
-        <section class="services" id="services">
-            <div class="services-media" data-parallax><img src="assets/images/services-bg.jpg"
-                    alt="Dark luxury lounge interior" loading="lazy" width="1920" height="1200" /></div>
-            <div class="services-overlay"></div>
-            <div class="container services-content">
-                <p class="label label-light reveal">Our Services</p>
-                <h2 class="light reveal">Explore Our Comprehensive<br /><em>Interior Design</em> Services</h2>
-                <div class="svc-grid">
-                    <article class="svc-card reveal-up"><span class="num">01</span>
-                        <div class="service-card-image">
-                            <img src="/assets/image/image (16).jpeg" alt="Residential Interiors">
-                        </div>
-                        <h3>Residential Interiors</h3>
-                        <p>Homes designed around light, comfort and the rituals of everyday living.</p><span
-                            class="svc-arrow" aria-hidden="true"><i data-lucide="move-up-right"></i> </span>
-                    </article>
-                    <article class="svc-card reveal-up"><span class="num">02</span>
-                        <div class="service-card-image">
-                            <img src="/assets/image/image (17).jpeg" alt="Commercial Interiors">
-                        </div>
-                        <h3>Commercial Interiors</h3>
-                        <p>Workspaces and retail environments that carry a brand without shouting.</p><span
-                            class="svc-arrow" aria-hidden="true"><i data-lucide="move-up-right"></i></span>
-                    </article>
-                    <article class="svc-card reveal-up"><span class="num">03</span>
-                        <div class="service-card-image">
-                            <img src="/assets/image/image (18).jpeg" alt="Custom Furniture & Styling">
-                        </div>
-                        <h3>Custom Furniture &amp; Styling</h3>
-                        <p>Bespoke joinery, loose furniture and the final layer of objects and texture.</p><span
-                            class="svc-arrow" aria-hidden="true"><i data-lucide="move-up-right"></i></span>
-                    </article>
-                    <article class="svc-card reveal-up"><span class="num">04</span>
-                        <div class="service-card-image">
-                            <img src="/assets/image/image (19).jpeg" alt="Architectural Design">
-                        </div>
-                        <h3>Architectural Design</h3>
-                        <p>Ground-up structures and renovations with a rigorous, material-led language.</p><span
-                            class="svc-arrow" aria-hidden="true"><i data-lucide="move-up-right"></i></span>
-                    </article>
-                    <article class="svc-card reveal-up"><span class="num">05</span>
-                        <div class="service-card-image">
-                            <img src="/assets/image/image (20).jpeg" alt="Space Planning & Consultation">
-                        </div>
-                        <h3>Space Planning &amp; Consultation</h3>
-                        <p>Efficient plans, circulation studies and expert advice before the first wall moves.</p><span
-                            class="svc-arrow" aria-hidden="true"><i data-lucide="move-up-right"></i></span>
-                    </article>
+                    <a href="/page/gallery.html" class="gallery-next-btn">Explore Our Work</a>
                 </div>
             </div>
         </section>
@@ -335,7 +461,7 @@
                     <div class="image-wrap pf-b reveal-scale"><img src="/assets/image/image2.jpeg"
                             alt="Luxury marble kitchen with brass accents" loading="lazy" width="900" height="900" />
                     </div>
-                    <div class="pf-note reveal-scale"><strong>Golden Ratio Residence</strong>
+                    <!-- <div class="pf-note reveal-scale"><strong>Golden Ratio Residence</strong> -->
                         <!-- <span>Bengaluru,2025</span> -->
                     </div>
                 </div>
@@ -560,11 +686,11 @@
                 <p class="lbh-footer-address">Chennai, Tamil Nadu, India</p>
                 <!-- SOCIAL -->
                 <div class="lbh-socials">
-                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram">ig</a>
-                    <a href="#" aria-label="YouTube">yt</a>
-                    <a href="#" aria-label="LinkedIn">in</a>
-                </div>
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
             </div>
             <!-- ===============================
                  STUDIO

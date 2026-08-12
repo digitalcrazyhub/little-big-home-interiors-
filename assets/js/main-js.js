@@ -283,3 +283,499 @@ if (stats && "IntersectionObserver" in window) {
         sections.forEach(function (s) { ao.observe(s); });
     }
 })();
+document.addEventListener("DOMContentLoaded", function () {
+
+    const hero = document.querySelector(".hero");
+
+    if (!hero) {
+        return;
+    }
+
+    const heroMedia = hero.querySelector(".hero-media");
+    const heroImage = hero.querySelector(".hero-media img");
+
+    const prevButton = hero.querySelector(".hero-carousel-prev");
+    const nextButton = hero.querySelector(".hero-carousel-next");
+
+    const dots = hero.querySelectorAll(".hero-carousel-dot");
+
+
+    /* =====================================================
+       HERO IMAGES
+    ====================================================== */
+
+    const heroImages = [
+        "/assets/image/home-banner.jpeg",
+        "/assets/image/image1.jpeg",
+        "/assets/image/image3.jpeg",
+        "/assets/image/image4.jpeg"
+    ];
+
+
+    /* =====================================================
+       VARIABLES
+    ====================================================== */
+
+    let currentSlide = 0;
+
+    let autoplay;
+
+    let isAnimating = false;
+
+    const autoplayDelay = 6000;
+
+
+    /* =====================================================
+       PRELOAD IMAGES
+    ====================================================== */
+
+    heroImages.forEach(function (src) {
+
+        const image = new Image();
+
+        image.src = src;
+
+    });
+
+
+    /* =====================================================
+       UPDATE DOTS
+    ====================================================== */
+
+    function updateDots() {
+
+        dots.forEach(function (dot, index) {
+
+            if (index === currentSlide) {
+
+                dot.classList.add("active");
+
+                dot.setAttribute(
+                    "aria-current",
+                    "true"
+                );
+
+            } else {
+
+                dot.classList.remove("active");
+
+                dot.setAttribute(
+                    "aria-current",
+                    "false"
+                );
+
+            }
+
+        });
+
+    }
+
+
+    /* =====================================================
+       SHOW SLIDE
+    ====================================================== */
+
+    function showSlide(index) {
+
+        if (isAnimating) {
+            return;
+        }
+
+
+        isAnimating = true;
+
+
+        /*
+         * Infinite loop
+         */
+
+        if (index >= heroImages.length) {
+
+            currentSlide = 0;
+
+        } else if (index < 0) {
+
+            currentSlide =
+                heroImages.length - 1;
+
+        } else {
+
+            currentSlide = index;
+
+        }
+
+
+        /*
+         * Fade current image
+         */
+
+        heroImage.classList.add(
+            "hero-carousel-transition"
+        );
+
+
+        setTimeout(function () {
+
+            heroImage.src =
+                heroImages[currentSlide];
+
+
+            /*
+             * Restart slow zoom animation
+             */
+
+            heroImage.style.animation = "none";
+
+            void heroImage.offsetWidth;
+
+            heroImage.style.animation =
+                "slowzoom 22s ease-in-out infinite alternate";
+
+
+            /*
+             * Fade image back in
+             */
+
+            heroImage.classList.remove(
+                "hero-carousel-transition"
+            );
+
+
+            updateDots();
+
+
+            isAnimating = false;
+
+        }, 700);
+
+
+        restartAutoplay();
+
+    }
+
+
+    /* =====================================================
+       NEXT
+    ====================================================== */
+
+    function nextSlide() {
+
+        showSlide(
+            currentSlide + 1
+        );
+
+    }
+
+
+    /* =====================================================
+       PREVIOUS
+    ====================================================== */
+
+    function previousSlide() {
+
+        showSlide(
+            currentSlide - 1
+        );
+
+    }
+
+
+    /* =====================================================
+       NEXT BUTTON
+    ====================================================== */
+
+    if (nextButton) {
+
+        nextButton.addEventListener(
+            "click",
+            function () {
+
+                nextSlide();
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       PREVIOUS BUTTON
+    ====================================================== */
+
+    if (prevButton) {
+
+        prevButton.addEventListener(
+            "click",
+            function () {
+
+                previousSlide();
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       DOT NAVIGATION
+    ====================================================== */
+
+    dots.forEach(function (dot) {
+
+        dot.addEventListener(
+            "click",
+            function () {
+
+                const slide =
+                    parseInt(
+                        dot.getAttribute("data-slide"),
+                        10
+                    );
+
+
+                if (!isNaN(slide)) {
+
+                    showSlide(slide);
+
+                }
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       AUTOPLAY
+    ====================================================== */
+
+    function startAutoplay() {
+
+        autoplay =
+            setInterval(
+                function () {
+
+                    nextSlide();
+
+                },
+                autoplayDelay
+            );
+
+    }
+
+
+    function stopAutoplay() {
+
+        clearInterval(autoplay);
+
+    }
+
+
+    function restartAutoplay() {
+
+        stopAutoplay();
+
+        startAutoplay();
+
+    }
+
+
+    /* =====================================================
+       MOUSE DRAG
+    ====================================================== */
+
+    let mouseStartX = 0;
+
+    let mouseEndX = 0;
+
+    let isMouseDown = false;
+
+
+    heroMedia.addEventListener(
+        "mousedown",
+        function (event) {
+
+            isMouseDown = true;
+
+            mouseStartX =
+                event.clientX;
+
+            mouseEndX =
+                event.clientX;
+
+            stopAutoplay();
+
+        }
+    );
+
+
+    heroMedia.addEventListener(
+        "mousemove",
+        function (event) {
+
+            if (!isMouseDown) {
+                return;
+            }
+
+            mouseEndX =
+                event.clientX;
+
+        }
+    );
+
+
+    heroMedia.addEventListener(
+        "mouseup",
+        function () {
+
+            if (!isMouseDown) {
+                return;
+            }
+
+
+            isMouseDown = false;
+
+
+            const distance =
+                mouseEndX - mouseStartX;
+
+
+            if (Math.abs(distance) > 50) {
+
+                if (distance < 0) {
+
+                    nextSlide();
+
+                } else {
+
+                    previousSlide();
+
+                }
+
+            } else {
+
+                restartAutoplay();
+
+            }
+
+        }
+    );
+
+
+    heroMedia.addEventListener(
+        "mouseleave",
+        function () {
+
+            if (!isMouseDown) {
+                return;
+            }
+
+
+            isMouseDown = false;
+
+
+            const distance =
+                mouseEndX - mouseStartX;
+
+
+            if (Math.abs(distance) > 50) {
+
+                if (distance < 0) {
+
+                    nextSlide();
+
+                } else {
+
+                    previousSlide();
+
+                }
+
+            }
+
+
+            restartAutoplay();
+
+        }
+    );
+
+
+    /* =====================================================
+       TOUCH SWIPE
+    ====================================================== */
+
+    let touchStartX = 0;
+
+    let touchEndX = 0;
+
+
+    heroMedia.addEventListener(
+        "touchstart",
+        function (event) {
+
+            touchStartX =
+                event.touches[0].clientX;
+
+            touchEndX =
+                touchStartX;
+
+            stopAutoplay();
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    heroMedia.addEventListener(
+        "touchmove",
+        function (event) {
+
+            touchEndX =
+                event.touches[0].clientX;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    heroMedia.addEventListener(
+        "touchend",
+        function () {
+
+            const distance =
+                touchEndX - touchStartX;
+
+
+            if (Math.abs(distance) > 50) {
+
+                if (distance < 0) {
+
+                    nextSlide();
+
+                } else {
+
+                    previousSlide();
+
+                }
+
+            }
+
+
+            restartAutoplay();
+
+        }
+    );
+
+
+    /* =====================================================
+       INITIALIZE
+    ====================================================== */
+
+    updateDots();
+
+    startAutoplay();
+
+});
