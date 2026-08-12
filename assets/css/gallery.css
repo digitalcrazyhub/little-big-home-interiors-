@@ -713,7 +713,7 @@ img {
 .gal-overlay {
   position: fixed;
   inset: 0;
-  z-index: 60;
+  z-index: 150;
   background: rgba(28, 26, 23, 0.55);
   backdrop-filter: blur(3px);
   display: flex;

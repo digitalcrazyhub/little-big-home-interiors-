@@ -283,6 +283,7 @@ if (stats && "IntersectionObserver" in window) {
         sections.forEach(function (s) { ao.observe(s); });
     }
 })();
+//sdfjgkjsdgggggggg
 document.addEventListener("DOMContentLoaded", function () {
 
     const hero = document.querySelector(".hero");
@@ -294,10 +295,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const heroMedia = hero.querySelector(".hero-media");
     const heroImage = hero.querySelector(".hero-media img");
 
-    const prevButton = hero.querySelector(".hero-carousel-prev");
-    const nextButton = hero.querySelector(".hero-carousel-next");
+    const prevButton =
+        hero.querySelector(".hero-carousel-prev");
 
-    const dots = hero.querySelectorAll(".hero-carousel-dot");
+    const nextButton =
+        hero.querySelector(".hero-carousel-next");
+
+    const dots =
+        hero.querySelectorAll(".hero-carousel-dot");
+
+
+    if (!heroMedia || !heroImage) {
+        return;
+    }
+
+
+    /* =====================================================
+       DEFAULT IMAGE
+       Used if a carousel image is missing
+    ====================================================== */
+
+    const defaultImage =
+        "/assets/image/home-banner.jpeg";
 
 
     /* =====================================================
@@ -305,10 +324,15 @@ document.addEventListener("DOMContentLoaded", function () {
     ====================================================== */
 
     const heroImages = [
-        "/assets/image/home-banner.jpeg",
+
+        "/assets/image/image (15).jpeg",
+
         "/assets/image/image1.jpeg",
+
         "/assets/image/image3.jpeg",
+
         "/assets/image/image4.jpeg"
+
     ];
 
 
@@ -336,6 +360,41 @@ document.addEventListener("DOMContentLoaded", function () {
         image.src = src;
 
     });
+
+
+    /* =====================================================
+       DEFAULT IMAGE FALLBACK
+    ====================================================== */
+
+    heroImage.addEventListener(
+        "error",
+        function () {
+
+            /*
+             * Prevent infinite error loop
+             */
+
+            if (
+                heroImage.dataset.fallbackUsed === "true"
+            ) {
+                return;
+            }
+
+
+            heroImage.dataset.fallbackUsed = "true";
+
+
+            heroImage.src =
+                defaultImage;
+
+
+            console.warn(
+                "Hero image failed to load. Default image loaded:",
+                defaultImage
+            );
+
+        }
+    );
 
 
     /* =====================================================
@@ -405,48 +464,115 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
+        const newImage =
+            new Image();
+
+
         /*
-         * Fade current image
+         * If requested image doesn't exist,
+         * use default image.
          */
 
-        heroImage.classList.add(
-            "hero-carousel-transition"
-        );
+        newImage.onerror = function () {
 
-
-        setTimeout(function () {
-
-            heroImage.src =
-                heroImages[currentSlide];
-
-
-            /*
-             * Restart slow zoom animation
-             */
-
-            heroImage.style.animation = "none";
-
-            void heroImage.offsetWidth;
-
-            heroImage.style.animation =
-                "slowzoom 22s ease-in-out infinite alternate";
-
-
-            /*
-             * Fade image back in
-             */
-
-            heroImage.classList.remove(
+            heroImage.classList.add(
                 "hero-carousel-transition"
             );
 
 
-            updateDots();
+            setTimeout(function () {
+
+                heroImage.src =
+                    defaultImage;
 
 
-            isAnimating = false;
+                heroImage.dataset.fallbackUsed =
+                    "true";
 
-        }, 700);
+
+                heroImage.style.animation =
+                    "none";
+
+                void heroImage.offsetWidth;
+
+                heroImage.style.animation =
+                    "slowzoom 22s ease-in-out infinite alternate";
+
+
+                heroImage.classList.remove(
+                    "hero-carousel-transition"
+                );
+
+
+                updateDots();
+
+
+                isAnimating = false;
+
+            }, 700);
+
+        };
+
+
+        /*
+         * Image successfully loaded
+         */
+
+        newImage.onload = function () {
+
+            /*
+             * Fade current image
+             */
+
+            heroImage.classList.add(
+                "hero-carousel-transition"
+            );
+
+
+            setTimeout(function () {
+
+                heroImage.dataset.fallbackUsed =
+                    "false";
+
+
+                heroImage.src =
+                    heroImages[currentSlide];
+
+
+                /*
+                 * Restart slow zoom
+                 */
+
+                heroImage.style.animation =
+                    "none";
+
+                void heroImage.offsetWidth;
+
+                heroImage.style.animation =
+                    "slowzoom 22s ease-in-out infinite alternate";
+
+
+                /*
+                 * Fade image in
+                 */
+
+                heroImage.classList.remove(
+                    "hero-carousel-transition"
+                );
+
+
+                updateDots();
+
+
+                isAnimating = false;
+
+            }, 700);
+
+        };
+
+
+        newImage.src =
+            heroImages[currentSlide];
 
 
         restartAutoplay();
