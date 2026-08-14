@@ -1779,6 +1779,13 @@ em {
     .proj-track {
         transform: none !important
     }
+    .hero-carousel-prev {
+        left: 6%;
+        top: 73%;
+    }
+    .hero-carousel-next{
+        top: 73%;
+    }
 
     .slider-nav {
         display: none
@@ -1813,11 +1820,6 @@ em {
         bottom: 0
     }
 
-    .pf-note {
-        position: static;
-        display: inline-block;
-        margin-top: 16px
-    }
 
     .field-row {
         grid-template-columns: 1fr
@@ -1845,3 +1847,4 @@ em {
         scroll-behavior: auto
     }
 }
+
