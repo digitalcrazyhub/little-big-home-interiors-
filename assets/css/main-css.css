@@ -393,9 +393,6 @@ address {
     touch-action: pan-y;
 }
 
-.hero-media.is-dragging {
-    cursor: grabbing;
-}
 
 .hero-media img {
     width: 100%;
@@ -443,6 +440,14 @@ address {
     padding-top: 90px;
     padding-bottom: 120px;
 }
+
+.navigatio-btn{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+}
+
 
 .hero-content h1 {
     max-width: 16ch;
@@ -529,46 +534,46 @@ address {
    HERO CAROUSEL CONTROLS
 ========================================================= */
 
-.hero-carousel-prev,
-.hero-carousel-next {
-    position: absolute;
-    top: 85%;
-    z-index: 5;
-    display: grid;
-    place-items: center;
+.navigatio-btn .hero-carousel-prev,
+.navigatio-btn .hero-carousel-next {
+    position: static;
     width: 52px;
     height: 52px;
+
+    display: grid;
+    place-items: center;
+
     padding: 0;
+
     border: 1px solid rgba(255, 255, 255, .35);
     border-radius: 50%;
+
     background: rgba(17, 17, 17, .18);
+
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
+
     color: #fff;
+
     cursor: pointer;
     font-size: 20px;
     line-height: 1;
-    transform: translateY(-50%);
+
+    user-select: none;
+
     transition:
         background .3s ease,
         border-color .3s ease,
         transform .3s ease;
 }
 
-.hero-carousel-prev {
-    left: 24px;
-}
-
-.hero-carousel-next {
-    right: 24px;
-}
-
-.hero-carousel-prev:hover,
-.hero-carousel-next:hover {
-    border-color: rgba(255, 255, 255, .65);
+.navigatio-btn .hero-carousel-prev:hover,
+.navigatio-btn .hero-carousel-next:hover {
     background: rgba(17, 17, 17, .5);
-    transform: translateY(-50%) scale(1.06);
+    border-color: rgba(255, 255, 255, .65);
+    transform: scale(1.06);
 }
+
 
 
 /* =========================================================
@@ -1045,28 +1050,6 @@ address {
     height: 100%;
     object-fit: cover;
 }
-
-.pf-note {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    padding: 14px 20px;
-    background: var(--ink);
-    color: #fff;
-}
-
-.pf-note strong {
-    display: block;
-    font-size: .95rem;
-}
-
-.pf-note span {
-    color: rgba(255, 255, 255, .6);
-    font-size: .72rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-}
-
 
 /* =========================================================
    CTA
@@ -1691,6 +1674,18 @@ address {
         gap: 35px;
     }
 
+     .navigatio-btn {
+        gap: 8px;
+        margin-top: 24px;
+    }
+
+    .navigatio-btn .hero-carousel-prev,
+    .navigatio-btn .hero-carousel-next {
+        width: 44px;
+        height: 44px;
+        font-size: 17px;
+    }
+
     .process-grid {
         grid-template-columns: 1fr 1fr;
         gap: 32px;
@@ -1732,13 +1727,6 @@ address {
         grid-template-columns: 1fr 1fr;
     }
 
-    .hero-carousel-prev {
-        left: 24px;
-    }
-
-    .hero-carousel-next {
-        right: 24px;
-    }
 }
 
 
@@ -1785,26 +1773,16 @@ address {
         margin-top: 28px;
     }
 
-    .hero-carousel-prev,
-    .hero-carousel-next {
-        top: auto;
-        bottom: 82px;
-        width: 44px;
-        height: 44px;
-        transform: none;
+     .navigatio-btn {
+        gap: 8px;
+        margin-top: 20px;
     }
 
-    .hero-carousel-prev:hover,
-    .hero-carousel-next:hover {
-        transform: scale(1.06);
-    }
-
-    .hero-carousel-prev {
-        left: 24px;
-    }
-
-    .hero-carousel-next {
-        right: 24px;
+    .navigatio-btn .hero-carousel-prev,
+    .navigatio-btn .hero-carousel-next {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
     }
 
     .hero-carousel-dots {
@@ -1968,28 +1946,6 @@ address {
         display: none;
     }
 
-    .hero-carousel-prev,
-    .hero-carousel-next {
-        top: auto;
-        bottom: 78px;
-        width: 40px;
-        height: 40px;
-        font-size: 15px;
-        transform: none;
-    }
-
-    .hero-carousel-prev:hover,
-    .hero-carousel-next:hover {
-        transform: scale(1.05);
-    }
-
-    .hero-carousel-prev {
-        left: 18px;
-    }
-
-    .hero-carousel-next {
-        right: 18px;
-    }
 
     .hero-carousel-dots {
         right: 50%;
@@ -2492,22 +2448,6 @@ address {
         font-size: .68rem;
     }
 
-    .hero-carousel-prev,
-    .hero-carousel-next {
-        bottom: 72px;
-        width: 36px;
-        height: 36px;
-        font-size: 14px;
-    }
-
-    .hero-carousel-prev {
-        left: 12px;
-    }
-
-    .hero-carousel-next {
-        right: 12px;
-    }
-
     .hero-carousel-dots {
         bottom: 20px;
     }
@@ -2776,22 +2716,6 @@ address {
         font-size: .44rem;
     }
 
-    .hero-carousel-prev,
-    .hero-carousel-next {
-        width: 34px;
-        height: 34px;
-    }
-
-    .hero-carousel-prev {
-        left: 16px;
-        top: 70%;
-    }
-
-    .hero-carousel-next {
-        right: 68%;
-        top: 70%;
-    }
-
     .stat strong {
         font-size: 1.6rem;
     }
@@ -2823,18 +2747,6 @@ address {
 
     .scroll-dot {
         display: none;
-    }
-
-    .hero-carousel-prev,
-    .hero-carousel-next {
-        bottom: 55px;
-        top: auto;
-        transform: none;
-    }
-
-    .hero-carousel-prev:hover,
-    .hero-carousel-next:hover {
-        transform: scale(1.05);
     }
 
     .hero-carousel-dots {

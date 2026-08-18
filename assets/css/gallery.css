@@ -90,16 +90,6 @@ body.lbhg-page {
     max-width: 1050px;
 }
 
-.lbhg-banner-eyebrow,
-.lbhg-label {
-    margin: 0;
-    font-size: 11px;
-    letter-spacing: .34em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--brass);
-}
-
 .lbhg-rule {
     display: block;
     width: 64px;

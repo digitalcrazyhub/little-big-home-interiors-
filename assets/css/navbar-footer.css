@@ -1,1085 +1,977 @@
 /* =========================================================
-   LITTLE BIG HOME INTERIORS
-   NAVBAR + MOBILE MENU + FOOTER
-
-   All classes use "lbh-" prefix
-   to avoid conflicts with existing CSS.
+   INTERIOR DESIGN NAVBAR
+   All selectors are prefixed with idc-
 ========================================================= */
 
-
-/* =========================================================
-   NAVBAR
-========================================================= */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 :root {
-    --font-family: "Plus Jakarta Sans", "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-*{
-    font-family: var(--font-family);
-}
-.lbh-nav {
+    --ink: #111111;
+    --ink-2: #171717;
+    --bone: #F5F5F3;
+    --white: #FFFFFF;
+    --line: #E8E8E6;
+    --gold: #C9973E;
+    --gold-dark: #B3842F;
+    --muted: #6d6d68;
 
+    --maxw: 1240px;
+
+    --ease: cubic-bezier(.22, .61, .36, 1);
+
+    --font-family:
+        "Plus Jakarta Sans",
+        "Manrope",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.idc-header {
     position: fixed;
-
     top: 0;
     left: 0;
-    right: 0;
-
-    z-index: 100;
-
-    padding: 16px 0;
+    width: 100%;
+    z-index: 9990;
 
     background: transparent;
 
-    border-bottom: 1px solid transparent;
-
     transition:
-        background 0.45s ease,
-        backdrop-filter 0.45s ease,
-        -webkit-backdrop-filter 0.45s ease,
-        padding 0.45s ease,
-        border-color 0.45s ease;
+        background-color .45s var(--ease),
+        box-shadow .45s var(--ease),
+        backdrop-filter .45s var(--ease);
+}
 
+.idc-header.idc-scrolled {
+    background: rgba(17, 17, 17, .96);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
 }
 
 
-/* Scrolled */
+/* ================================
+   NAV CONTAINER
+================================ */
 
-.lbh-nav.lbh-scrolled {
+.idc-nav-container {
+    width: min(100% - 50px, var(--maxw));
 
-    padding: 8px 0;
-
-    background:
-        rgba(17, 17, 17, 0.88);
-
-    backdrop-filter:
-        blur(14px);
-
-    -webkit-backdrop-filter:
-        blur(14px);
-
-    border-bottom-color:
-        rgba(255, 255, 255, 0.08);
-
-}
-
-
-/* =========================================================
-   NAVBAR INNER
-========================================================= */
-
-.lbh-nav-wrap {
-
-    width:
-        min(
-            1240px,
-            calc(100% - 40px)
-        );
+    min-height: 88px;
 
     margin: 0 auto;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
-    gap: 25px;
+    gap: 30px;
 
+    transition: min-height .4s var(--ease);
+}
+
+.idc-header.idc-scrolled .idc-nav-container {
+    min-height: 76px;
 }
 
 
-/* =========================================================
+/* ================================
    LOGO
-========================================================= */
+================================ */
 
-.lbh-brand {
-
-    display: inline-flex;
-
+.idc-logo {
+    display: flex;
     align-items: center;
 
     flex-shrink: 0;
 
     text-decoration: none;
-
 }
 
-
-.lbh-brand-img {
-
+.idc-logo img {
     display: block;
 
-    width: 150px;
-
-    height: auto;
+    width: auto;
+    max-width: 170px;
+    max-height: 58px;
 
     object-fit: contain;
-
-    transition:
-        width 0.4s ease,
-        transform 0.3s ease;
-
 }
 
 
-.lbh-nav.lbh-scrolled
-.lbh-brand-img {
+/* ================================
+   DESKTOP NAV
+================================ */
 
-    width: 135px;
-
-}
-
-
-.lbh-brand:hover
-.lbh-brand-img {
-
-    transform:
-        scale(1.02);
-
-}
-
-
-/* =========================================================
-   DESKTOP MENU
-========================================================= */
-
-.lbh-menu {
-
+.idc-desktop-nav {
     display: flex;
-
     align-items: center;
+    justify-content: center;
 
-    gap: 28px;
+    gap: 30px;
 
     margin-left: auto;
-
 }
 
-
-.lbh-menu-link {
-
+.idc-nav-link {
     position: relative;
 
-    display: inline-flex;
-
-    align-items: center;
-
-    padding: 7px 0;
-
-    color:
-        rgba(255, 255, 255, 0.82);
+    color: var(--white);
 
     text-decoration: none;
 
+    font-family: var(--font-family);
     font-size: 13px;
-
     font-weight: 500;
 
-    letter-spacing: 0.08em;
+    letter-spacing: .02em;
 
-    text-transform: uppercase;
-
-    white-space: nowrap;
+    padding: 10px 0;
 
     transition:
-        color 0.3s ease;
-
+        color .3s var(--ease);
 }
 
-
-.lbh-menu-link::after {
-
+.idc-nav-link::after {
     content: "";
 
     position: absolute;
 
     left: 0;
-
-    bottom: 0;
+    bottom: 3px;
 
     width: 0;
-
     height: 1px;
 
-    background: #C9973E;
+    background: var(--gold);
 
-    transition:
-        width 0.35s
-        cubic-bezier(
-            .22,
-            .61,
-            .36,
-            1
-        );
-
+    transition: width .35s var(--ease);
 }
 
-
-.lbh-menu-link:hover {
-
-    color: #ffffff;
-
+.idc-nav-link:hover,
+.idc-nav-link.active {
+    color: var(--gold);
 }
 
-
-.lbh-menu-link:hover::after {
-
+.idc-nav-link:hover::after,
+.idc-nav-link.active::after {
     width: 100%;
-
 }
 
 
-.lbh-menu-link.lbh-active {
+/* ================================
+   RIGHT SIDE
+================================ */
 
-    color: #ffffff;
-
-}
-
-
-.lbh-menu-link.lbh-active::after {
-
-    width: 100%;
-
-}
-
-
-/* =========================================================
-   NAVBAR RIGHT ACTIONS
-========================================================= */
-
-.lbh-nav-actions {
-
+.idc-nav-right {
     display: flex;
-
     align-items: center;
 
     gap: 20px;
 
     flex-shrink: 0;
-
 }
 
 
-/* =========================================================
-   PHONE
-========================================================= */
+/* Phone */
 
-.lbh-phone {
-
+.idc-phone {
     display: inline-flex;
-
     align-items: center;
-
     gap: 8px;
 
-    color:
-        rgba(255, 255, 255, 0.88);
+    color: var(--white);
 
     text-decoration: none;
+
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    transition: color .3s var(--ease);
+}
+
+.idc-phone:hover {
+    color: var(--gold);
+}
+
+.idc-phone-icon {
+    width: 30px;
+    height: 30px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, .35);
+    border-radius: 50%;
 
     font-size: 12px;
 
-    font-weight: 500;
-
-    letter-spacing: 0.04em;
-
-    white-space: nowrap;
-
     transition:
-        color 0.3s ease;
+        border-color .3s var(--ease),
+        background-color .3s var(--ease);
+}
 
+.idc-phone:hover .idc-phone-icon {
+    border-color: var(--gold);
+    background: var(--gold);
+    color: var(--ink);
 }
 
 
-.lbh-phone-icon {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 17px;
-
-    height: 17px;
-
-    color: #C9973E;
-
-}
-
-
-.lbh-phone-icon svg {
-
-    display: block;
-
-    width: 100%;
-
-    height: 100%;
-
-}
-
-
-.lbh-phone:hover {
-
-    color: #C9973E;
-
-}
-
-
-/* =========================================================
+/* ================================
    CONTACT BUTTON
-========================================================= */
+================================ */
 
-.lbh-contact-cta {
-
+.idc-contact-btn {
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
 
-    min-width: 105px;
+    gap: 10px;
 
-    min-height: 40px;
+    min-height: 46px;
 
-    padding: 0 19px;
+    padding: 0 8px 0 20px;
 
-    background: #C9973E;
+    color: var(--ink);
 
-    border: 1px solid #C9973E;
-
-    color: #ffffff;
+    background: var(--gold);
 
     text-decoration: none;
 
-    font-size: 11px;
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-weight: 700;
 
-    font-weight: 600;
+    letter-spacing: .02em;
 
-    letter-spacing: 0.08em;
-
-    text-transform: uppercase;
-
-    white-space: nowrap;
+    border-radius: 100px;
 
     transition:
-        background 0.3s ease,
-        border-color 0.3s ease,
-        color 0.3s ease,
-        transform 0.3s ease;
+        background-color .3s var(--ease),
+        transform .3s var(--ease);
+}
 
+.idc-contact-btn:hover {
+    background: var(--white);
+
+    color: var(--ink);
+
+    transform: translateY(-2px);
+}
+
+.idc-btn-arrow {
+    width: 32px;
+    height: 32px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--ink);
+
+    color: var(--white);
+
+    border-radius: 50%;
+
+    font-size: 15px;
+
+    transition:
+        transform .4s var(--ease);
+}
+
+.idc-contact-btn:hover .idc-btn-arrow {
+    transform: rotate(45deg);
 }
 
 
-.lbh-contact-cta:hover {
+/* ================================
+   MOBILE TOGGLE
+================================ */
 
-    background: #ffffff;
-
-    border-color: #ffffff;
-
-    color: #111111;
-
-    transform:
-        translateY(-2px);
-
-}
-
-
-/* =========================================================
-   BURGER
-========================================================= */
-
-.lbh-burger {
-
+.idc-menu-toggle {
     display: none;
 
-    position: relative;
-
-    z-index: 10001;
-
-    width: 44px;
-
-    height: 44px;
+    width: 46px;
+    height: 46px;
 
     padding: 0;
 
-    border: 0;
+    border: 1px solid rgba(255, 255, 255, .4);
+
+    border-radius: 50%;
 
     background: transparent;
 
     cursor: pointer;
 
-    flex-direction: column;
-
     align-items: center;
-
     justify-content: center;
 
-    gap: 5px;
-
+    transition:
+        background-color .3s var(--ease),
+        border-color .3s var(--ease);
 }
 
+.idc-menu-toggle:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+}
 
-.lbh-burger span {
+.idc-menu-icon {
+    width: 20px;
+    height: 15px;
 
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.idc-menu-icon span {
     display: block;
 
-    width: 23px;
+    width: 100%;
+    height: 1px;
 
-    height: 2px;
-
-    background: #ffffff;
+    background: var(--white);
 
     transition:
-        transform 0.35s ease,
-        opacity 0.25s ease;
-
+        transform .4s var(--ease),
+        opacity .3s var(--ease);
 }
 
 
-/* =========================================================
-   BURGER -> X
-========================================================= */
+/* ================================
+   MOBILE OVERLAY
+================================ */
 
-.lbh-burger.lbh-open
-span:nth-child(1) {
-
-    transform:
-        translateY(7px)
-        rotate(45deg);
-
-}
-
-
-.lbh-burger.lbh-open
-span:nth-child(2) {
-
-    opacity: 0;
-
-}
-
-
-.lbh-burger.lbh-open
-span:nth-child(3) {
-
-    transform:
-        translateY(-7px)
-        rotate(-45deg);
-
-}
-
-
-/* =========================================================
-   MOBILE MENU OVERLAY
-========================================================= */
-
-.lbh-mobile {
-
+.idc-mobile-overlay {
     position: fixed;
 
     inset: 0;
 
-    z-index: 9998;
+    z-index: 9995;
 
-    display: flex;
-
-    align-items: stretch;
-
-    justify-content: flex-end;
-
-    padding: 0;
-
-    background:
-        rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, .5);
 
     opacity: 0;
-
     visibility: hidden;
 
     transition:
-        opacity 0.35s ease,
-        visibility 0.35s ease;
-
+        opacity .45s var(--ease),
+        visibility .45s var(--ease);
 }
 
-
-.lbh-mobile.lbh-open {
-
+.idc-mobile-overlay.idc-open {
     opacity: 1;
-
     visibility: visible;
-
 }
 
 
-/* =========================================================
-   RIGHT SIDE 70% DRAWER
-========================================================= */
+/* ================================
+   MOBILE MENU
+   70% WIDTH
+================================ */
 
-.lbh-mobile-nav {
+.idc-mobile-menu {
+    position: fixed;
 
-    position: relative;
+    top: 0;
+    right: 0;
 
-    z-index: 2;
-
-    width: 70vw;
-
-    max-width: 420px;
-
-    min-width: 280px;
-
+    width: 70%;
+    max-width: 520px;
     height: 100vh;
 
-    padding:
-        110px
-        35px
-        40px;
+    z-index: 10000;
 
+    background: var(--ink);
+
+    color: var(--white);
+
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    transform: translateX(100%);
+
+    transition:
+        transform .55s var(--ease);
+
+    box-shadow: -15px 0 50px rgba(0, 0, 0, .2);
+}
+
+.idc-mobile-menu.idc-open {
+    transform: translateX(0);
+}
+
+
+/* ================================
+   MOBILE MENU TOP
+================================ */
+
+.idc-mobile-menu-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .15);
+}
+
+.idc-mobile-title {
+    color: var(--gold);
+
+    font-family: var(--font-family);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+
+/* Close */
+
+.idc-mobile-close {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, .3);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.idc-close-icon {
+    position: relative;
+
+    width: 18px;
+    height: 18px;
+}
+
+.idc-close-icon span {
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: var(--white);
+}
+
+.idc-close-icon span:first-child {
+    transform: rotate(45deg);
+}
+
+.idc-close-icon span:last-child {
+    transform: rotate(-45deg);
+}
+
+
+/* ================================
+   MOBILE NAV
+================================ */
+
+.idc-mobile-nav {
     display: flex;
 
     flex-direction: column;
 
-    align-items: flex-start;
-
-    justify-content: flex-start;
-
-    gap: 20px;
-
-    background: #171717;
-
-    box-shadow:
-        -20px 0 60px
-        rgba(0, 0, 0, 0.35);
-
-    transform:
-        translateX(100%);
-
-    transition:
-        transform 0.55s
-        cubic-bezier(
-            .22,
-            .61,
-            .36,
-            1
-        );
-
+    margin-top: 25px;
 }
 
+.idc-mobile-link {
+    display: grid;
 
-.lbh-mobile.lbh-open
-.lbh-mobile-nav {
+    grid-template-columns: 40px 1fr;
 
-    transform:
-        translateX(0);
+    align-items: center;
 
-}
+    padding: 18px 0;
 
-
-/* =========================================================
-   MOBILE LINKS
-========================================================= */
-
-.lbh-mobile-link {
-
-    position: relative;
-
-    display: block;
-
-    width: 100%;
-
-    padding: 7px 0;
-
-    color:
-        rgba(255, 255, 255, 0.75);
-
-    font-size: 19px;
-
-    font-weight: 500;
-
-    letter-spacing: 0.04em;
+    color: var(--white);
 
     text-decoration: none;
 
-    transition:
-        color 0.3s ease,
-        padding-left 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
 
-}
+    transform: translateX(25px);
 
-
-.lbh-mobile-link::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    bottom: 0;
-
-    width: 0;
-
-    height: 1px;
-
-    background: #C9973E;
+    opacity: 0;
 
     transition:
-        width 0.35s ease;
+        color .3s var(--ease),
+        transform .45s var(--ease),
+        opacity .45s var(--ease);
+}
 
+.idc-mobile-menu.idc-open .idc-mobile-link {
+    transform: translateX(0);
+
+    opacity: 1;
+}
+
+.idc-mobile-menu.idc-open .idc-mobile-link:nth-child(1) {
+    transition-delay: .08s;
+}
+
+.idc-mobile-menu.idc-open .idc-mobile-link:nth-child(2) {
+    transition-delay: .13s;
+}
+
+.idc-mobile-menu.idc-open .idc-mobile-link:nth-child(3) {
+    transition-delay: .18s;
+}
+
+.idc-mobile-menu.idc-open .idc-mobile-link:nth-child(4) {
+    transition-delay: .23s;
+}
+
+.idc-mobile-menu.idc-open .idc-mobile-link:nth-child(5) {
+    transition-delay: .28s;
+}
+
+.idc-mobile-menu.idc-open .idc-mobile-link:nth-child(6) {
+    transition-delay: .33s;
+}
+
+.idc-mobile-link > span {
+    color: var(--gold);
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.idc-mobile-link strong {
+    font-family: var(--font-family);
+
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: 500;
+}
+
+.idc-mobile-link:hover {
+    color: var(--gold);
+
+    padding-left: 8px;
 }
 
 
-.lbh-mobile-link:hover {
+/* ================================
+   MOBILE BOTTOM
+================================ */
 
-    color: #ffffff;
+.idc-mobile-bottom {
+    margin-top: auto;
 
-    padding-left: 5px;
+    padding-top: 25px;
 
+    border-top: 1px solid rgba(255, 255, 255, .15);
+}
+
+.idc-mobile-bottom p {
+    margin: 0 0 12px;
+
+    color: rgba(255, 255, 255, .6);
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.idc-mobile-bottom a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 24px;
+    background-color: var(--gold);
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 600;
 }
 
 
-.lbh-mobile-link.lbh-active {
+/* ================================
+   RESPONSIVE
+================================ */
 
-    color: #ffffff;
+@media (max-width: 1100px) {
 
+    .idc-desktop-nav {
+        gap: 20px;
+    }
+
+    .idc-phone {
+        display: none;
+    }
+
+    .idc-nav-container {
+        width: min(100% - 35px, var(--maxw));
+    }
 }
 
 
-.lbh-mobile-link.lbh-active::after {
+@media (max-width: 850px) {
 
-    width: 35px;
+    .idc-desktop-nav,
+    .idc-contact-btn {
+        display: none;
+    }
 
+    .idc-menu-toggle {
+        display: flex;
+    }
+
+    .idc-nav-container {
+        min-height: 76px;
+    }
+
+    .idc-logo img {
+        max-width: 145px;
+    }
 }
 
 
+@media (max-width: 600px) {
+
+    .idc-mobile-menu {
+        width: 70%;
+
+        padding: 25px 20px;
+    }
+
+    .idc-nav-container {
+        width: calc(100% - 30px);
+    }
+
+    .idc-mobile-link {
+        padding: 15px 0;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .idc-mobile-menu {
+        width: 80%;
+    }
+
+    .idc-logo img {
+        max-width: 125px;
+    }
+}
+
+
+/* ================================
+   BODY LOCK
+================================ */
+
+body.idc-menu-active {
+    overflow: hidden;
+}
+
+/* ===============================
+    FOOTER
+=================================*/
 /* =========================================================
-   MOBILE PHONE
+   INTERIOR DESIGN FOOTER
 ========================================================= */
 
-.lbh-mobile-phone {
+.idc-footer {
+    position: relative;
 
+    background: var(--ink);
+
+    color: var(--white);
+
+    font-family: var(--font-family);
+
+    overflow: hidden;
+}
+
+
+/* ================================
+   FOOTER CONTAINER
+================================ */
+
+.idc-footer-container {
+    width: min(100% - 50px, var(--maxw));
+
+    margin: 0 auto;
+
+    padding: 90px 0 75px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.8fr
+        1fr
+        1fr
+        1.2fr;
+
+    gap: 70px;
+}
+
+
+/* ================================
+   BRAND
+================================ */
+
+.idc-footer-logo {
+    display: inline-flex;
+
+    text-decoration: none;
+
+    margin-bottom: 25px;
+}
+
+.idc-footer-logo img {
+    display: block;
+
+    max-width: 180px;
+    max-height: 60px;
+
+    object-fit: contain;
+}
+
+.idc-footer-description {
+    max-width: 360px;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, .58);
+
+    font-size: 13px;
+
+    line-height: 1.9;
+}
+
+
+/* ================================
+   SOCIAL
+================================ */
+
+.idc-social-links {
     display: flex;
 
     align-items: center;
 
     gap: 9px;
 
-    width: 100%;
-
-    margin-top: 10px;
-
-    padding-top: 18px;
-
-    border-top:
-        1px solid
-        rgba(255, 255, 255, 0.1);
-
-    color:
-        rgba(255, 255, 255, 0.72);
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    transition:
-        color 0.3s ease;
-
+    margin-top: 28px;
 }
 
-
-.lbh-mobile-phone:hover {
-
-    color: #C9973E;
-
-}
-
-
-.lbh-mobile-phone-icon {
+.idc-social-links a {
+    width: 38px;
+    height: 38px;
 
     display: flex;
 
-    width: 17px;
-
-    height: 17px;
-
-    color: #C9973E;
-
-}
-
-
-.lbh-mobile-phone-icon svg {
-
-    width: 100%;
-
-    height: 100%;
-
-}
-
-
-/* =========================================================
-   MOBILE CTA
-========================================================= */
-
-.lbh-mobile-cta {
-
-    display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
 
-    width: 100%;
+    border: 1px solid rgba(255, 255, 255, .18);
 
-    min-height: 46px;
+    border-radius: 50%;
 
-    margin-top: 8px;
-
-    padding: 0 25px;
-
-    background: #C9973E;
-
-    color: #111111;
+    color: var(--white);
 
     text-decoration: none;
 
-    font-size: 11px;
-
-    font-weight: 600;
-
-    letter-spacing: 0.1em;
-
-    text-transform: uppercase;
+    font-size: 9px;
+    font-weight: 700;
 
     transition:
-        background 0.3s ease,
-        transform 0.3s ease;
+        background-color .35s var(--ease),
+        color .35s var(--ease),
+        border-color .35s var(--ease),
+        transform .35s var(--ease);
+}
 
+.idc-social-links a:hover {
+    background: var(--gold);
+
+    color: var(--ink);
+
+    border-color: var(--gold);
+
+    transform: translateY(-4px);
 }
 
 
-.lbh-mobile-cta:hover {
+/* ================================
+   FOOTER TITLES
+================================ */
 
-    background: #ffffff;
-
-    transform:
-        translateY(-2px);
-
-}
-
-
-/* =========================================================
-   BODY LOCK
-========================================================= */
-
-body.lbh-no-scroll {
-
-    overflow: hidden;
-
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.lbh-footer {
-
+.idc-footer-title {
     position: relative;
 
-    overflow: hidden;
+    margin: 0 0 27px;
 
-    background: #111111;
+    padding-bottom: 15px;
 
-    color: #ffffff;
+    color: var(--white);
 
-    padding: 80px 0 0;
+    font-size: 13px;
 
+    font-weight: 700;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
 }
 
-
-/* Background architectural lines */
-
-.lbh-footer::before {
-
+.idc-footer-title::after {
     content: "";
 
     position: absolute;
 
-    inset: 0;
+    left: 0;
+    bottom: 0;
 
-    pointer-events: none;
+    width: 28px;
+    height: 1px;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent 0,
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        );
-
-    background-size: 80px 80px;
-
-    opacity: .25;
-
+    background: var(--gold);
 }
 
 
-/* =========================================================
-   FOOTER GRID
-========================================================= */
+/* ================================
+   FOOTER LINKS
+================================ */
 
-.lbh-footer-wrap {
-
-    position: relative;
-
-    z-index: 1;
-
-    width:
-        min(
-            1240px,
-            calc(100% - 40px)
-        );
-
-    margin: 0 auto;
-
-    display: grid;
-
-    grid-template-columns:
-        2fr
-        1fr
-        1fr
-        1.2fr;
-
-    gap: 60px;
-
-    padding-bottom: 65px;
-
-}
-
-
-/* =========================================================
-   FOOTER BRAND
-========================================================= */
-
-.lbh-footer-brand {
-
-    max-width: 390px;
-
-}
-
-
-.lbh-footer-logo {
-
-    display: inline-flex;
-
-    margin-bottom: 25px;
-
-}
-
-
-.lbh-footer-logo img {
-
-    display: block;
-
-    width: 165px;
-
-    height: auto;
-
-    object-fit: contain;
-
-}
-
-
-.lbh-footer-desc {
-
-    max-width: 370px;
-
-    margin: 0 0 20px;
-
-    color:
-        rgba(255,255,255,.62);
-
-    font-size: 14px;
-
-    line-height: 1.8;
-
-}
-
-
-.lbh-footer-address {
+.idc-footer-links {
+    list-style: none;
 
     margin: 0;
-
-    color:
-        rgba(255,255,255,.48);
-
-    font-size: 13px;
-
-    line-height: 1.7;
-
+    padding: 0;
 }
 
-
-/* =========================================================
-   SOCIAL
-========================================================= */
-
-.lbh-socials {
-
-    display: flex;
-
-    gap: 10px;
-
-    margin-top: 25px;
-
+.idc-footer-links li {
+    margin-bottom: 13px;
 }
 
+.idc-footer-links a {
+    position: relative;
 
-.lbh-socials a {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 38px;
-
-    height: 38px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.18);
-
-    color:
-        rgba(255,255,255,.75);
+    color: rgba(255, 255, 255, .58);
 
     text-decoration: none;
 
-    font-size: 11px;
+    font-size: 13px;
 
     transition:
-        background .3s ease,
-        color .3s ease,
-        border-color .3s ease,
-        transform .3s ease;
+        color .3s var(--ease),
+        padding-left .3s var(--ease);
+}
 
+.idc-footer-links a::before {
+    content: "";
+
+    position: absolute;
+
+    left: -15px;
+    top: 50%;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--gold);
+
+    transition: width .3s var(--ease);
+}
+
+.idc-footer-links a:hover {
+    color: var(--gold);
+
+    padding-left: 10px;
+}
+
+.idc-footer-links a:hover::before {
+    width: 8px;
 }
 
 
-.lbh-socials a:hover {
+/* ================================
+   CONTACT INFO
+================================ */
 
-    background: #C9973E;
-
-    border-color: #C9973E;
-
-    color: #111111;
-
-    transform:
-        translateY(-3px);
-
-}
-
-
-/* =========================================================
-   FOOTER COLUMNS
-========================================================= */
-
-.lbh-footer-col h4 {
-
-    margin:
-        4px 0 22px;
-
-    color: #ffffff;
-
-    font-size: 12px;
-
-    font-weight: 600;
-
-    letter-spacing: .14em;
-
-    text-transform: uppercase;
-
-}
-
-
-.lbh-footer-col ul {
-
+.idc-contact-info {
     display: flex;
 
     flex-direction: column;
 
-    gap: 13px;
-
-    margin: 0;
-
-    padding: 0;
-
-    list-style: none;
-
+    gap: 25px;
 }
 
+.idc-contact-info a {
+    display: flex;
 
-.lbh-footer-col li {
+    flex-direction: column;
 
-    color:
-        rgba(255,255,255,.45);
+    gap: 7px;
 
-    font-size: 13px;
-
-    line-height: 1.6;
-
-}
-
-
-.lbh-footer-col a {
-
-    color:
-        rgba(255,255,255,.55);
+    color: var(--white);
 
     text-decoration: none;
 
-    transition:
-        color .3s ease,
-        padding-left .3s ease;
+    font-size: 14px;
 
+    line-height: 1.6;
+
+    transition: color .3s var(--ease);
+}
+
+.idc-contact-info a:hover {
+    color: var(--gold);
+}
+
+.idc-contact-label {
+    color: var(--gold);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: .14em;
+
+    text-transform: uppercase;
 }
 
 
-.lbh-footer-col a:hover {
-
-    color: #C9973E;
-
-    padding-left: 4px;
-
-}
-
-
-/* =========================================================
+/* ================================
    FOOTER BOTTOM
-========================================================= */
+================================ */
 
-.lbh-footer-bottom-wrap {
-
-    position: relative;
-
-    z-index: 1;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.09);
-
+.idc-footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, .1);
 }
 
-
-.lbh-footer-bottom {
-
-    width:
-        min(
-            1240px,
-            calc(100% - 40px)
-        );
+.idc-footer-bottom-container {
+    width: min(100% - 50px, var(--maxw));
 
     min-height: 70px;
 
@@ -1088,237 +980,75 @@ body.lbh-no-scroll {
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
-    gap: 20px;
+    gap: 25px;
+}
 
-    color:
-        rgba(255,255,255,.38);
+.idc-footer-bottom p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, .42);
 
     font-size: 11px;
 
-    letter-spacing: .03em;
+    line-height: 1.6;
+}
 
+.idc-footer-bottom a {
+    color: var(--gold);
+
+    text-decoration: none;
+
+    transition: color .3s var(--ease);
+}
+
+.idc-footer-bottom a:hover {
+    color: var(--white);
 }
 
 
-/* =========================================================
+/* ================================
    TABLET
-========================================================= */
+================================ */
 
-@media (max-width: 1050px) {
+@media (max-width: 1000px) {
 
-    .lbh-menu {
+    .idc-footer-container {
+        grid-template-columns: 1.5fr 1fr 1fr;
 
-        gap: 19px;
-
+        gap: 50px;
     }
 
-
-    .lbh-menu-link {
-
-        font-size: 11px;
-
-    }
-
-
-    .lbh-nav-actions {
-
-        gap: 12px;
-
-    }
-
-
-    .lbh-phone-text {
-
-        display: none;
-
-    }
-
-
-    .lbh-contact-cta {
-
-        min-width: 95px;
-
-        padding:
-            0 14px;
-
+    .idc-footer-brand {
+        grid-column: 1 / -1;
     }
 
 }
 
 
-/* =========================================================
-   TABLET FOOTER
-========================================================= */
-
-@media (max-width: 900px) {
-
-    .lbh-footer-wrap {
-
-        grid-template-columns:
-            1.5fr
-            1fr
-            1fr;
-
-        gap: 45px;
-
-    }
-
-
-    .lbh-footer-brand {
-
-        grid-column:
-            1 / -1;
-
-        max-width: 550px;
-
-    }
-
-}
-
-
-/* =========================================================
+/* ================================
    MOBILE
-========================================================= */
+================================ */
 
-@media (max-width: 800px) {
+@media (max-width: 650px) {
 
+    .idc-footer-container {
+        width: calc(100% - 40px);
 
-    /* Navbar */
-
-    .lbh-nav {
-
-        padding: 12px 0;
-
-    }
-
-
-    .lbh-nav.lbh-scrolled {
-
-        padding: 8px 0;
-
-    }
-
-
-    .lbh-nav-wrap {
-
-        width:
-            calc(100% - 30px);
-
-    }
-
-
-    /* Logo */
-
-    .lbh-brand-img {
-
-        width: 135px;
-
-    }
-
-
-    .lbh-nav.lbh-scrolled
-    .lbh-brand-img {
-
-        width: 125px;
-
-    }
-
-
-    /* Hide desktop */
-
-    .lbh-menu,
-    .lbh-nav-actions {
-
-        display: none;
-
-    }
-
-
-    /* Show burger */
-
-    .lbh-burger {
-
-        display: flex;
-
-    }
-
-
-    /* Mobile drawer */
-
-    .lbh-mobile {
-
-        display: flex;
-
-        align-items: stretch;
-
-        justify-content: flex-end;
-
-    }
-
-
-    .lbh-mobile-nav {
-
-        width: 70vw;
-
-        max-width: 420px;
-
-        min-width: 280px;
-
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE FOOTER
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .lbh-footer {
-
-        padding-top: 60px;
-
-    }
-
-
-    .lbh-footer-wrap {
-
-        width:
-            calc(100% - 30px);
+        padding: 65px 0 50px;
 
         grid-template-columns: 1fr;
 
-        gap: 40px;
-
-        padding-bottom: 45px;
-
+        gap: 42px;
     }
 
-
-    .lbh-footer-brand {
-
+    .idc-footer-brand {
         grid-column: auto;
-
     }
 
-
-    .lbh-footer-logo img {
-
-        width: 145px;
-
-    }
-
-
-    .lbh-footer-bottom {
-
-        width:
-            calc(100% - 30px);
-
-        min-height: auto;
+    .idc-footer-bottom-container {
+        width: calc(100% - 40px);
 
         padding: 20px 0;
 
@@ -1327,75 +1057,23 @@ body.lbh-no-scroll {
         align-items: flex-start;
 
         gap: 8px;
-
-        line-height: 1.6;
-
     }
 
 }
 
 
-/* =========================================================
+/* ================================
    SMALL MOBILE
-========================================================= */
+================================ */
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
 
-    .lbh-brand-img {
-
-        width: 120px;
-
+    .idc-footer-container {
+        width: calc(100% - 30px);
     }
 
-
-    .lbh-nav.lbh-scrolled
-    .lbh-brand-img {
-
-        width: 115px;
-
-    }
-
-
-    .lbh-mobile-nav {
-
-        width: 70vw;
-
-        min-width: 250px;
-
-        padding-left: 25px;
-
-        padding-right: 25px;
-
-    }
-
-
-    .lbh-mobile-link {
-
-        font-size: 18px;
-
-    }
-
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .lbh-nav,
-    .lbh-brand-img,
-    .lbh-menu-link,
-    .lbh-mobile,
-    .lbh-mobile-nav,
-    .lbh-burger span,
-    .lbh-mobile-link,
-    .lbh-contact-cta,
-    .lbh-socials a {
-
-        transition: none !important;
-
+    .idc-footer-bottom-container {
+        width: calc(100% - 30px);
     }
 
 }

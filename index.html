@@ -8,244 +8,167 @@
     <link rel="icon" href="/assets/image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/main-css.css" />
     <link rel="stylesheet" href="/assets/css/navbar-footer.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+        integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <!-- =====================================================
-         NAVBAR
-    ====================================================== -->
-    <header class="lbh-nav" id="lbhNav">
-        <div class="lbh-nav-wrap">
-            <!-- ===============================
-                 LOGO
-            ================================ -->
-            <a href="#home" class="lbh-brand" aria-label="Little Big Home Interiors Home">
-                <img src="/assets/image/logo.png" alt="Little Big Home Interiors" class="lbh-brand-img">
-            </a>
-            <!-- ===============================
-                 DESKTOP NAVIGATION
-            ================================ -->
-            <nav class="lbh-menu" id="lbhMenu" aria-label="Primary Navigation">
-                <a href="#home" class="lbh-menu-link lbh-active">Home</a>
-                <a href="#about" class="lbh-menu-link">About</a>
-                <a href="#projects" class="lbh-menu-link">Projects</a>
-                <a href="#services" class="lbh-menu-link">Services</a>
-                <a href="/page/gallery.html" class="lbh-menu-link">Gallery</a>
-                <a href="#contact" class="lbh-menu-link">Contact</a>
-            </nav>
-            <!-- ===============================
-                 DESKTOP RIGHT ACTIONS
-            ================================ -->
-            <div class="lbh-nav-actions">
-                <!-- PHONE -->
-                <a href="tel:+917358161947" class="lbh-phone" aria-label="Call Little Big Home Interiors">
-                    <span class="lbh-phone-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2
-                                19.79 19.79 0 0 1-8.63-3.07
-                                19.5 19.5 0 0 1-6-6
-                                19.79 19.79 0 0 1-3.07-8.67
-                                A2 2 0 0 1 4.11 2h3
-                                a2 2 0 0 1 2 1.72
-                                12.84 12.84 0 0 0 .7 2.81
-                                2 2 0 0 1-.45 2.11L8.09 9.91
-                                a16 16 0 0 0 6 6l1.27-1.27
-                                a2 2 0 0 1 2.11-.45
-                                12.84 12.84 0 0 0 2.81.7
-                                A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </span>
-                    <span class="lbh-phone-text">+91 73581 61947</span>
-                </a>
-                <!-- CONTACT CTA -->
-                <a href="#contact" class="lbh-contact-cta">Contact Us</a>
-            </div>
-            <!-- ===============================
-                 MOBILE TOGGLE
-            ================================ -->
-            <button class="lbh-burger" id="lbhBurger" type="button" aria-label="Open navigation menu"
-                aria-expanded="false" aria-controls="lbhMobile">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
-    <!-- =====================================================
-         MOBILE RIGHT SIDE MENU
-    ====================================================== -->
-    <div class="lbh-mobile" id="lbhMobile" aria-hidden="true">
-        <nav class="lbh-mobile-nav" aria-label="Mobile Navigation">
-            <a href="#home" class="lbh-mobile-link lbh-active">Home</a>
-            <a href="#about" class="lbh-mobile-link">About</a>
-            <a href="#projects" class="lbh-mobile-link">Projects</a>
-            <a href="#services" class="lbh-mobile-link">Services</a>
-            <a href="#process" class="lbh-mobile-link">Process</a>
-            <a href="/page/gallery.html" class="lbh-mobile-link">Gallery</a>
-            <a href="#contact" class="lbh-mobile-link">Contact</a>
-            <!-- Mobile Phone -->
-            <a href="tel:+919999999999" class="lbh-mobile-phone">
-                <span class="lbh-mobile-phone-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2
-                            19.79 19.79 0 0 1-8.63-3.07
-                            19.5 19.5 0 0 1-6-6
-                            19.79 19.79 0 0 1-3.07-8.67
-                            A2 2 0 0 1 4.11 2h3
-                            a2 2 0 0 1 2 1.72
-                            12.84 12.84 0 0 0 .7 2.81
-                            2 2 0 0 1-.45 2.11L8.09 9.91
-                            a16 16 0 0 0 6 6l1.27-1.27
-                            a2 2 0 0 1 2.11-.45
-                            12.84 12.84 0 0 0 2.81.7
-                            A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </span>
-                +91 99999 99999</a>
-            <!-- Mobile CTA -->
-            <a href="#contact" class="lbh-mobile-cta">Contact Us</a>
-        </nav>
-    </div>
+   <!-- ================================
+     INTERIOR DESIGN NAVBAR
+================================= -->
+<header class="idc-header" id="idcHeader">
 
-    <main>
-        <!-- ============ HERO ============ -->
-    <section class="hero" id="home">
+    <div class="idc-nav-container">
 
-        <div class="hero-media">
-
-            <img
-                    src="/assets/image/home-banner.jpeg"
-                    alt="Cinematic luxury dining room interior at dusk"
-                    width="1600"
-                    height="900"
-                    draggable="false"
-            />
-
-        </div>
-
-        <div class="hero-overlay"></div>
-
-        <div class="container hero-content">
-
-            <p class="label label-light reveal">
-                Interior · Architecture · Styling
-            </p>
-
-            <h1 class="reveal">
-                Find Your <em>Inspired</em><br />
-                Interior Design
-            </h1>
-
-            <p class="hero-sub reveal">
-                Thoughtfully designed spaces that bring architecture,
-                functionality and timeless aesthetics together.
-            </p>
-
-            <div class="hero-actions reveal">
-
-                <a href="/page/gallery.html" class="btn btn-gold">
-                    Explore Our Work
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <a
-                href="#about"
-                class="scroll-dot"
-                aria-label="Scroll to next section"
-        >
-
-            <span class="scroll-dot-ring"></span>
-
-            <span class="scroll-dot-arrow">
-            &#8595;
-        </span>
-
+        <!-- Logo -->
+        <a href="#home" class="idc-logo" aria-label="Home">
+            <img src="/assets/image/logo.png" alt="Company Logo">
         </a>
 
+        <!-- Desktop Navigation -->
+        <nav class="idc-desktop-nav" aria-label="Main Navigation">
+            <a href="#home" class="idc-nav-link active">Home</a>
+            <a href="#about" class="idc-nav-link">About Us</a>
+            <a href="#projects" class="idc-nav-link">Projects</a>
+            <a href="#services" class="idc-nav-link">Services</a>
+            <a href="/page/gallery.html" class="idc-nav-link">Gallery</a>
+            <a href="#contact" class="idc-nav-link">Contact</a>
+        </nav>
 
-        <div
-                class="hero-word"
-                aria-hidden="true">
-            <i data-lucide="move-down"></i>
+        <!-- Right Side -->
+        <div class="idc-nav-right">
+            <a href="tel:+917358161947" class="idc-phone">
+                <span class="idc-phone-icon" aria-hidden="true">☎</span>
+                <span>+917358161947</span>
+            </a>
+            <a href="#contact" class="idc-contact-btn">
+                <span>Contact Us</span>
+                <span class="idc-btn-arrow">↗</span>
+            </a>
+            <!-- Mobile Toggle -->
+            <button
+                type="button"
+                class="idc-menu-toggle"
+                id="idcMenuToggle"
+                aria-label="Open menu"
+                aria-expanded="false">
+                <span class="idc-menu-icon" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+
+            </button>
         </div>
+    </div>
+</header>
 
-
-        <!-- =====================================================
+<!-- ================================
+     MOBILE MENU
+================================= -->
+<div class="idc-mobile-overlay" id="idcMobileOverlay"></div>
+<aside class="idc-mobile-menu" id="idcMobileMenu">
+    <div class="idc-mobile-menu-top">
+        <span class="idc-mobile-title">Menu</span>
+        <button
+            type="button"
+            class="idc-mobile-close"
+            id="idcMobileClose"
+            aria-label="Close menu">
+            <span class="idc-close-icon">
+                <span></span>
+                <span></span>
+            </span>
+        </button>
+    </div>
+    <nav class="idc-mobile-nav" aria-label="Mobile Navigation">
+        <a href="#home" class="idc-mobile-link">
+            <span>01</span>
+            <strong>Home</strong>
+        </a>
+        <a href="#about" class="idc-mobile-link">
+            <span>02</span>
+            <strong>About Us</strong>
+        </a>
+        <a href="#projects" class="idc-mobile-link">
+            <span>03</span>
+            <strong>Projects</strong>
+        </a>
+        <a href="#services" class="idc-mobile-link">
+            <span>04</span>
+            <strong>Services</strong>
+        </a>
+        <a href="/page/gallery.html" class="idc-mobile-link">
+            <span>05</span>
+            <strong>Gallery</strong>
+        </a>
+        <a href="#contact" class="idc-mobile-link">
+            <span>06</span>
+            <strong>Contact</strong>
+        </a>
+    </nav>
+    <div class="idc-mobile-bottom">
+        <p>Let's create something beautiful together.</p>
+        <a href=tel:+917358161947>+91 73581 61947</a>
+    </div>
+</aside>
+    <main>
+        <!-- ============ HERO ============ -->
+        <section class="hero" id="home">
+            <div class="hero-media">
+                <img src="/assets/image/home-banner.jpeg" alt="Cinematic luxury dining room interior at dusk"
+                    width="1600" height="900" draggable="false" />
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <p class="label label-light reveal">Interior · Architecture · Styling</p>
+                <h1 class="reveal">Find Your <em>Inspired</em><br />Interior Design</h1>
+                <p class="hero-sub reveal">
+                    Thoughtfully designed spaces that bring architecture,
+                    functionality and timeless aesthetics together.
+                </p>
+                <div class="hero-actions reveal">
+                    <a href="/page/gallery.html" class="btn btn-gold">Explore Our Work</a>
+                </div>
+                <div class="navigatio-btn">
+                    <button type="button" class="hero-carousel-prev" aria-label="Previous slide">&#8592;</button>
+                    <button type="button" class="hero-carousel-next" aria-label="Next slide">&#8594;</button>
+                </div>
+            </div>
+            <a href="#about" class="scroll-dot" aria-label="Scroll to next section">
+                <span class="scroll-dot-ring"></span>
+                <span class="scroll-dot-arrow">&#8595;</span>
+            </a>
+            <div class="hero-word" aria-hidden="true">
+                <i data-lucide="move-down"></i>
+            </div>
+            <!-- ====================================================
              HERO CAROUSEL PREVIOUS
         ====================================================== -->
 
-        <button
-                type="button"
-                class="hero-carousel-prev"
-                aria-label="Previous slide">
-            &#8592;
-        </button>
-
-
-        <!-- =====================================================
+            <!-- <button type="button" class="hero-carousel-prev" aria-label="Previous slide">&#8592;</button> -->
+            <!-- =====================================================
              HERO CAROUSEL NEXT
         ====================================================== -->
-
-        <button
-                type="button"
-                class="hero-carousel-next"
-                aria-label="Next slide"
-        >
-            &#8594;
-        </button>
-
-
-        <!-- =====================================================
+            <!-- <button type="button" class="hero-carousel-next" aria-label="Next slide">&#8594;</button> -->
+            <!-- =====================================================
              HERO CAROUSEL DOTS
         ====================================================== -->
+            <div class="hero-carousel-dots" aria-label="Hero slides">
+                <button type="button" class="hero-carousel-dot active" data-slide="0" aria-label="Go to slide 1"
+                    aria-current="true"></button>
+                <button type="button" class="hero-carousel-dot" data-slide="1" aria-label="Go to slide 2"
+                    aria-current="false"></button>
+                <button type="button" class="hero-carousel-dot" data-slide="2" aria-label="Go to slide 3"
+                    aria-current="false"></button>
 
-        <div
-                class="hero-carousel-dots"
-                aria-label="Hero slides"
-        >
+                <button type="button" class="hero-carousel-dot" data-slide="3" aria-label="Go to slide 4"
+                    aria-current="false"></button>
 
-            <button
-                    type="button"
-                    class="hero-carousel-dot active"
-                    data-slide="0"
-                    aria-label="Go to slide 1"
-                    aria-current="true"
-            ></button>
+            </div>
 
-            <button
-                    type="button"
-                    class="hero-carousel-dot"
-                    data-slide="1"
-                    aria-label="Go to slide 2"
-                    aria-current="false"
-            ></button>
-
-            <button
-                    type="button"
-                    class="hero-carousel-dot"
-                    data-slide="2"
-                    aria-label="Go to slide 3"
-                    aria-current="false"
-            ></button>
-
-            <button
-                    type="button"
-                    class="hero-carousel-dot"
-                    data-slide="3"
-                    aria-label="Go to slide 4"
-                    aria-current="false"
-            ></button>
-
-        </div>
-
-    </section>
+        </section>
 
 
         <!-- ============ ABOUT ============ -->
@@ -277,7 +200,7 @@
             </div>
         </section>
 
-        
+
 
         <!-- ============ PROCESS ============ -->
         <section class="section process" id="process">
@@ -308,13 +231,15 @@
                             <p>On-site supervision and styling — delivered on schedule, finished to the millimetre.</p>
                         </li>
                         <li class="reveal-up"><span class="num">05</span>
-                        <h3>Handover</h3>
-                        <p>Final detailing, quality checks and finishing touches ensure every space is ready to be lived in.</p>
-                    </li>
-                    <li class="reveal-up"><span class="num">06</span>
-                        <h3>Aftercare</h3>
-                        <p>We stay connected beyond completion, supporting you with guidance and care as your space evolves.</p>
-                    </li>
+                            <h3>Handover</h3>
+                            <p>Final detailing, quality checks and finishing touches ensure every space is ready to be
+                                lived in.</p>
+                        </li>
+                        <li class="reveal-up"><span class="num">06</span>
+                            <h3>Aftercare</h3>
+                            <p>We stay connected beyond completion, supporting you with guidance and care as your space
+                                evolves.</p>
+                        </li>
                     </ol>
                 </div>
             </div>
@@ -460,9 +385,9 @@
                             alt="Luxury marble kitchen with brass accents" loading="lazy" width="900" height="900" />
                     </div>
                     <!-- <div class="pf-note reveal-scale"><strong>Golden Ratio Residence</strong> -->
-                        <!-- <span>Bengaluru,2025</span> -->
-                    </div>
+                    <!-- <span>Bengaluru,2025</span> -->
                 </div>
+            </div>
             </div>
         </section>
 
@@ -515,34 +440,35 @@
         </section>
 
         <!-- ============ STORY / STATS ============ -->
-     <!-- ===== STORY ===== -->
-<section class="story">
-    <div class="story-media" data-parallax>
-        <img src="/assets/image/image (17).jpeg" alt="Dark luxury interior at night" loading="lazy" width="1920" height="1080"/>
-    </div>
-    <div class="story-overlay"></div>
-    <div class="container story-content">
-        <h2 class="light reveal">Behind <em>Every Statistic</em><br />Pulses A Human Story</h2>
-        <div class="stats" id="stats">
-            <!-- Happy Clients -->
-            <div class="stat"> <strong data-count="100" data-plain="1" data-suffix="%">0</strong>
-                <span>Happy Clients</span>
+        <!-- ===== STORY ===== -->
+        <section class="story">
+            <div class="story-media" data-parallax>
+                <img src="/assets/image/image (17).jpeg" alt="Dark luxury interior at night" loading="lazy" width="1920"
+                    height="1080" />
             </div>
-            <!-- Projects Completed -->
-            <div class="stat"> <strong data-count="190" data-suffix="+">0</strong>
-                <span>Projects Completed</span>
+            <div class="story-overlay"></div>
+            <div class="container story-content">
+                <h2 class="light reveal">Behind <em>Every Statistic</em><br />Pulses A Human Story</h2>
+                <div class="stats" id="stats">
+                    <!-- Happy Clients -->
+                    <div class="stat"> <strong data-count="100" data-plain="1" data-suffix="%">0</strong>
+                        <span>Happy Clients</span>
+                    </div>
+                    <!-- Projects Completed -->
+                    <div class="stat"> <strong data-count="190" data-suffix="+">0</strong>
+                        <span>Projects Completed</span>
+                    </div>
+                    <!-- Happy Customers -->
+                    <div class="stat"> <strong data-count="260" data-suffix="+">0</strong>
+                        <span>Happy Customers</span>
+                    </div>
+                    <!-- Spaces Delivered -->
+                    <div class="stat"> <strong data-count="328" data-suffix="+">0</strong>
+                        <span>Spaces Delivered</span>
+                    </div>
+                </div>
             </div>
-            <!-- Happy Customers -->
-            <div class="stat"> <strong data-count="260" data-suffix="+">0</strong>
-                <span>Happy Customers</span>
-            </div>
-            <!-- Spaces Delivered -->
-            <div class="stat"> <strong data-count="328" data-suffix="+">0</strong>
-                <span>Spaces Delivered</span>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
         <!-- ============ TESTIMONIALS ============ -->
         <section class="section testimonials">
@@ -578,9 +504,9 @@
                         </div>
                         <div class="test-controls">
                             <button class="arrow" id="testPrev" aria-label="Previous testimonial"><i
-                            data-lucide="move-left"></i></button>
+                                    data-lucide="move-left"></i></button>
                             <button class="arrow" id="testNext" aria-label="Next testimonial"><i
-                            data-lucide="move-right"></i></button>
+                                    data-lucide="move-right"></i></button>
                         </div>
                     </div>
                 </div>
@@ -600,7 +526,8 @@
                         <li><span>Phone</span><a href="tel:+917358161947">+91 73581 61947</a></li>
                         <li><span>Email</span><a href="mailto:litlebighomes@gmail.com">litlebighomes@gmail.com</a></li>
                         <li><span>Location</span>
-                            <address>6/36C, Dhanadayuthapani 1 Street, Chitra Nagar, Kottrurpuram, Chennai, Tamil Nadu - 600085.</address>
+                            <address>6/36C, Dhanadayuthapani 1 Street, Chitra Nagar, Kottrurpuram, Chennai, Tamil Nadu -
+                                600085.</address>
                         </li>
                     </ul>
                 </div>
@@ -663,78 +590,82 @@
         </section>
 
     </main>
+<!-- ================================
+     INTERIOR DESIGN FOOTER
+================================= -->
 
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer class="lbh-footer">
-        <div class="lbh-footer-wrap">
-            <!-- ===============================
-                 BRAND
-            ================================ -->
-            <div class="lbh-footer-brand">
-                <a href="index.html#home" class="lbh-footer-logo"><img src="/assets/image/logo.png"
-                        alt="Little Big Home Interiors"></a>
-                <p class="lbh-footer-desc">
-                    We transform your vision into beautifully
-                    crafted spaces — architecture and interiors,
-                    designed with intent.
-                </p>
-                <p class="lbh-footer-address">Chennai, Tamil Nadu, India</p>
-                <!-- SOCIAL -->
-                <div class="lbh-socials">
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            </div>
-            </div>
-            <!-- ===============================
-                 STUDIO
-            ================================ -->
-            <div class="lbh-footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="index.html#services">Services</a></li>
-                    <li><a href="index.html#process">Our Process</a></li>
-                    <li><a href="/page/gallery.html">Gallery</a></li>
-                    <li><a href="index.html#contact">Contact Us</a></li>
-                </ul>
-            </div>
-            <!-- ===============================
-                 EXPLORE
-            ================================ -->
-            <div class="lbh-footer-col">
-                <h4>Explore</h4>
-                <ul>
-                    <li><a href="/page/privacy-policy.html">Privacy Policy</a></li>
-                </ul>
-            </div>
-            <!-- ===============================
-                 CONTACT
-            ================================ -->
-            <div class="lbh-footer-col">
-                <h4>Contact</h4>
-                <ul>
-                    <li><a href="tel:+917358161947  ">+91 73581 61947</a></li>
-                    <li><a href="mailto:litlebighomes@gmail.com">litlebighomes@gmail.com</a></li>
-                    <li>6/36C, Dhanadayuthapani 1 Street, Chitra Nagar, Kottrurpuram, Chennai, Tamil Nadu - 600085.</li>
-                </ul>
+<footer class="idc-footer">
+    <div class="idc-footer-container">
+        <!-- Grid 1 -->
+        <div class="idc-footer-column idc-footer-brand">
+            <a href="index.html" class="idc-footer-logo"><img src="/assets/image/logo.png" alt="Company Logo"></a>
+            <p class="idc-footer-description">
+                We create timeless interior spaces that combine
+                thoughtful design, refined aesthetics and
+                exceptional craftsmanship.
+            </p>
+            <div class="idc-social-links">
+                <a href="#" aria-label="Instagram"><span><i class="fa-brands fa-facebook-f"></i></span></a>
+                <a href="#" aria-label="Facebook"><span><i class="fa-brands fa-instagram"></i></span></a>
+                <a href="#" aria-label="LinkedIn"><span><i class="fa-brands fa-youtube"></i></span></a>
+                <a href="#" aria-label="YouTube"><span><i class="fa-brands fa-linkedin-in"></i></span></a>
             </div>
         </div>
-        <!-- ===============================
-             FOOTER BOTTOM
-        ================================ -->
-        <div class="lbh-footer-bottom-wrap">
-            <div class="lbh-footer-bottom">
-                <span>© 2026 Little Big Home Interiors. All rights reserved. <a href="https://www.digitalcrazyhub.com/" target="_blank" rel="noopener noreferrer" style="color: rgba(255, 255, 255, .45); text-decoration: none;"> Designed by Digital Crazy Hub</a></span>
-                <span>Crafted with care for those who inhabit space.</span>
+        <!-- Grid 2 -->
+        <div class="idc-footer-column">
+            <h3 class="idc-footer-title">Quick Links</h3>
+            <ul class="idc-footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="project.html">Project</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <!-- Grid 3 -->
+        <div class="idc-footer-column">
+            <h3 class="idc-footer-title">Explore</h3>
+            <ul class="idc-footer-links">
+                <li><a href="/page/privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <!-- Grid 4 -->
+        <div class="idc-footer-column">
+            <h3 class="idc-footer-title">Contact</h3>
+            <div class="idc-contact-info">
+                <a href="tel:+917358161947"><span class="idc-contact-label">Phone</span>
+                    <span>+91 73581 61947</span>
+                </a>
+                <a href="mailto:litlebighomes@gmail.com">
+                    <span class="idc-contact-label">Email</span>
+                    <span>litlebighomes@gmail.com</span>
+                </a>
+                <a href="#">
+                    <span class="idc-contact-label">Company Address</span>
+                    <span>6/36C, Dhanadayuthapani 1 Street, Chitra Nagar, Kottrurpuram, Chennai, Tamil Nadu - 600085.</span>
+                </a>
             </div>
         </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    </div>
+    <!-- Footer Bottom -->
+    <div class="idc-footer-bottom">
+        <div class="idc-footer-bottom-container">
+            <p>
+                © <span id="idcCurrentYear"></span>
+                Littile Big Home Interiors.
+                All Rights Reserved.
+            </p>
+            <p>
+                Website Created by
+                <a href="https://digitalcrazyhub.com/" target="_blank" rel="noopener">
+                    DigitalCrazyHub
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         lucide.createIcons();
     </script>
